@@ -1,0 +1,30 @@
+<div ng-if="!notConnected" layout="column" layout-align="start center" style="height:100%;background-size:contain;background-image:url(images/intouch-images/welcome.jpg); ">
+    <div style="height:calc(50% - 15px);background-color: rgba(0,0,0,0.54);
+    width: 100%;" layout="column" layout-align="center center">
+        <p style="font-size:35px;color:whitesmoke;margin:0px;">inTOUCH</p>
+        <p style="color: darkgrey;
+    margin: 0px;">#connecting people</p>
+    </div>
+    <div style="width:100%;height:70%;background-color:white;" layout="column" layout-align="start center">
+        <img ng-src="data:image/png;base64,{{$root.profilePicture}}" err-src="images/intouch-images/contacts.png" style="height:100px; width:100px;border-radius:100%; padding:5px;margin-top:-50px;">
+        <p style="padding: 0px 5px;
+                                  color: darkgrey; font-weight:100;font-size:20px;">Hey {{userProfileInfo.name}}
+        </p>
+        <div style="width:50px;height:50px;border-radius:100%;background-color:{{$root.shellConfig.themeconfiguration.accentpalette}}" layout="row" layout-align="center center">
+            <md-icon md-svg-icon="icons/ic_done_24px.svg" style="color:whitesmoke;"></md-icon>
+        </div>
+        <p>connected!</p>
+    </div>
+
+</div>
+<div layout="row" layout-align="center center" style="height:100%;">
+    <div layout="row" layout-align="center start">
+        <p style="font-size:45px;color:{{$root.shellConfig.themeconfiguration.accentpalette}};margin:25px 0px;line-height:20px;">inTOUCH
+            <br><span style="color: darkgrey;
+    margin: 0px;font-size:13px;">#connecting people</span></p>
+        <md-progress-circular md-mode="indeterminate" md-diameter="70" class="md-accent" ng-if="notConnected"></md-progress-circular>
+        <div ng-if="!notConnected" class="intouch-home-default-connected" style="background-color:{{$root.shellConfig.themeconfiguration.accentpalette}}" layout="row" layout-align="center center">
+            <md-icon md-svg-icon="icons/ic_done_24px.svg" style="color:whitesmoke;"></md-icon>
+        </div>
+    </div>
+</div>

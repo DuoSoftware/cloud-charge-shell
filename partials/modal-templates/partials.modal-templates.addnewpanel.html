@@ -1,0 +1,23 @@
+<md-dialog>
+    <md-content layout-padding>
+        <md-subheader class="md-no-sticky">Add a new collection Panel</md-subheader>
+
+        <div layout="column" layout-sm="column" layout-margin>
+            <md-input-container flex>
+                <label>Title</label>
+                <input ng-model="newPanelTitle">
+            </md-input-container>
+<!--
+           <md-radio-group ng-model="newPanelType">
+    <label>Type</label>
+    <md-radio-button value="Collections">Collections</md-radio-button>
+    <md-radio-button value="CLoud">Cloud</md-radio-button>
+</md-radio-group>
+-->
+        </div>
+        <div layout="row" layout-align="end center" layout-padding>
+            <md-button class="md-primary" ng-click="addNewPanel();">Add</md-button>
+            <md-button ng-click="close();">Cancel</md-button>
+        </div>
+    </md-content>
+</md-dialog>

@@ -1,0 +1,12 @@
+<div class="md-framework-parent-panel-layout">
+    <div class="md-framework-panel-content-container" style="width:100%; height:100%;" layout="column" layout-align="start start">
+        <!-- <panelcontrol-component componentdata=""></panelcontrol-component> -->
+        <perfect-scrollbar class="systemTrayScroller" id="systemTrayScroller" wheel-propagation="false" wheel-speed="2" layout="row" layout-align="center start">
+            <div layout="row" layout-align="start start" layout-wrap class="md-framework-pannel-apptray">
+                <div ng-repeat="componentdata in allApps | filter:globalSearchKeyword" appshortcut-component componentdata="componentdata" flex-sm="50" flex-md="30" flex-lg="25" flex-gt-lg="20" style="padding:10px;height:200px;"></div>
+
+            </div>
+        </perfect-scrollbar>
+
+    </div>
+</div>

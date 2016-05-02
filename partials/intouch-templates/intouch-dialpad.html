@@ -1,0 +1,48 @@
+<md-content ng-controller="DialCtrl" style="height: 100vh;background-color: rgba(0,0,0); overflow:hidden;
+    " ng-class="{calling : calling}" layout="column" layout-align="center center">
+    <div ng-if="!calling" class="row" layout="row" style="margin-top:20vh;border-bottom:1px solid #b6b6b6;width:40%" layout-padding>
+        <input style="border:none;width:80%;text-align:right;font-size:24px;background-color: rgba(245, 245, 220, 0);" ng-model="dialingNumber" placeholder="Dial up"></input>
+        <md-button ng-click="backspace()" style="line-height:8px;">
+            <md-icon md-svg-icon="icons/ic_backspace_24px.svg"></md-icon>
+        </md-button>
+    </div>
+    <div ng-if="calling" style="height:54px;margin-top:10vh;" layout="column" layout-align="start center">
+        <div class="spinner">
+        </div>
+        <div class="spinner1">
+        </div>
+        <img id="userProfilePic" ng-src="data:image/png;base64,{{profile_pic}}" err-src="icons/contacts.png" style="border-radius: 80px;  width: 150px;
+  height: 150px;z-index: 100;
+    position: relative;"></img>
+        <p style="margin-top:90px;color:lightgrey; font-size:2em;">{{reciever_name}}</p>
+        <p style="color: {{$root.shellConfig.themeconfiguration.accentpalette}}; font-size:1em; text-align:center;">{{dialingNumber}}</p>
+    </div>
+
+    <div style="font-size:24px; height:40vh; margin-top:5vh" ng-if="!calling">
+        <div class="row" layout-padding>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/1.png)" ng-click="changeNumber('1')">&nbsp;</md-button>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/2.png)" ng-click="changeNumber('2')">&nbsp;</md-button>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/3.png)" ng-click="changeNumber('3')">&nbsp;</md-button>
+        </div>
+        <div class="row" layout-padding>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/4.png)" ng-click="changeNumber('4')">&nbsp;</md-button>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/5.png)" ng-click="changeNumber('5')">&nbsp;</md-button>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/6.png)" ng-click="changeNumber('6')">&nbsp;</md-button>
+        </div>
+        <div class="row" layout-padding>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/7.png)" ng-click="changeNumber('7')">&nbsp;</md-button>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/8.png)" ng-click="changeNumber('8')">&nbsp;</md-button>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/9.png)" ng-click="changeNumber('9')">&nbsp;</md-button>
+        </div>
+        <div class="row" layout-padding>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/star.png)" ng-click="changeNumber('*')">&nbsp;</md-button>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/0.png)" ng-click="changeNumber('0')">&nbsp;</md-button>
+            <md-button class="dialButtons" style="background:url(images/intouch-images/connect/Dialpad/hash.png)" ng-click="changeNumber('#')">&nbsp;</md-button>
+        </div>
+    </div>
+    <div ng-if="calling" style="height:55vh;"></div>
+    <md-button id="decline" class="md-primary" aria-label="" ng-click="clickIconMorph()" style="line-height:100% !important; width:150px;">
+        <md-icon md-svg-icon="{{clickIcon}}" style="color:{{color}};"></md-icon>
+    </md-button>
+
+</md-content>

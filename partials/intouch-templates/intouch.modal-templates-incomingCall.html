@@ -1,0 +1,26 @@
+<md-dialog style="min-width:30%;">
+    <md-content style="overflow:hidden;background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};">
+        <div layout="column" layout-align="center center" style="background-color: rgba(0,0,0,0.3);" layout-padding>
+            <div class="spinner">
+            </div>
+            <div class="spinner1">
+            </div>
+            <img ng-src="data:image/png;base64,{{$root.dialingUser.profile_pic}}" class="md-card-image" style="border-radius: 80px;  width: 100px;
+  height: 100px;z-index: 100;position:relative;margin-top:25px;
+    ">
+            <p style="font-size: x-large;
+    text-align: center;
+    color: whitesmoke; margin:5px;">{{$root.dialingUser.fname}}</p>
+            <p style="color:darkgrey;">Incoming call...</p>
+        </div>
+        <div class="md-actions" layout="row" layout-align="center center" flex style="background-color:white;">
+            <md-button class="md-primary" flex ng-click="accept();">
+                <ng-md-icon icon="call" style="fill:green;position:relative;top:5px;"></ng-md-icon>
+                Accept</md-button>
+            <md-button flex ng-click="decline();">
+                <ng-md-icon icon="call_end" style="fill:red;position:relative;top:5px;"></ng-md-icon>
+                Decline</md-button>
+        </div>
+
+    </md-content>
+</md-dialog>

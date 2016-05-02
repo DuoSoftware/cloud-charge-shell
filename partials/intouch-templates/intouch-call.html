@@ -1,0 +1,87 @@
+<md-content style="height: 90vh; overflow:hidden;">
+    <center>
+        <md-card ng-class="{endCall : endCall,startCall : startCall}" style="width:100%;height:90vh; background-color: rgb(0, 0, 0); margin:0px;">
+            <!--
+<div style="height:70vh;margin-top:10vh;" ng-if="!ssselfCam">
+    <div class="spinner" style="background-color:{{$root.shellConfig.themeconfiguration.accentpalette}}">
+    </div>
+    <div class="spinner1" style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}}">
+    </div>
+    <img id="userProfilePic" src={{user.profile_pic}} style="border-radius: 80px;  width: 150px;
+  height: 150px;z-index: 10;
+    position: relative;"></img>
+
+    <p style="margin-top:90px;color: lightgrey; font-size:2em;">Connecting {{user.fname}}...</p>
+    <p style="color: {{$root.shellConfig.themeconfiguration.accentpalette}}; font-size:1em;">{{user.mobile}}</p>
+</div>
+-->
+
+            <!--web cam-->
+
+
+
+            <div style="height:70vh;margin-top:10vh;">
+                <video id="localVideo" muted="muted" style="width: 200px;
+    position: absolute;
+    margin: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(48, 47, 47, 0.8);    right: 0px;
+    bottom:10vh;"></video>
+                <video id="remoteVideo" style="height:70vh;"></video>
+                <div style="position:absolute;top: 10vh;
+    width: 100%;" ng-if="!$root.callConnected ">
+                    <div class="spinner" style="background-color:{{$root.shellConfig.themeconfiguration.accentpalette}}">
+                    </div>
+                    <div class="spinner1" style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}}">
+                    </div>
+                    <img id="userProfilePic" src="data:image/png;base64,{{$root.dialingUser.profile_pic}}" style="border-radius: 80px;  width: 150px;
+  height: 150px;z-index: 100;
+    position: relative;" err-src="images/intouch-images/contacts.png"></img>
+
+                    <p style="margin-top:40px;color: lightgrey; font-size:1em;">Connecting {{dialingNumber || $root.dialingUser.fname}}...</p>
+                    <p style="color:  {{$root.shellConfig.themeconfiguration.accentpalette}}; font-size:1em;">{{$root.dialingUser.mobile}}</p>
+                </div>
+                <timer interval="1000" style="color:whitesmoke;margin:10px 10px;font-size:15px;">{{hours}}:{{minutes}}:{{seconds}}</timer>
+            </div>
+
+
+
+
+            <div layout="row" layout-align="space-around center" flex style="height:10vh; width:40%;">
+                <md-button id="decline" class="md-primary" aria-label="" ng-click="webCamOn();" style="line-height:100% !important; ">
+
+                    <md-icon md-svg-icon="{{webCam}}" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+                </md-button>
+
+                <md-button id="decline" class="md-primary" aria-label="" ng-click="micOn();" style="line-height:100% !important; ">
+
+                    <md-icon md-svg-icon="{{mic}}" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+                </md-button>
+                <md-button ng-if="$root.callConnected" id="decline" class="md-primary" aria-label="" ng-click="callHold();" style="line-height:100% !important; ">
+                    <md-icon md-svg-icon="{{callhold}}" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+                </md-button>
+
+                <md-button id="decline" class="md-primary" aria-label="" ng-click="end_call();" style="line-height:100% !important; ">
+
+                    <md-icon md-svg-icon="icons/ic_call_end_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+                </md-button>
+
+                <!--
+                <md-button id="decline" class="md-primary" aria-label="" ng-click="addUsers();" style="line-height:100% !important;">
+                    <ng-md-icon icon="group_add" options='{"duration": 375}' style="fill:lightgrey" size="32"></ng-md-icon>
+                    <md-icon md-svg-icon="{{webCam}}" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+                </md-button>
+-->
+                <!--
+               <md-button id="decline" class="md-primary" aria-label="" ui-sref="sideBarChat" style="line-height:100% !important;">
+    <ng-md-icon icon="group_add" options='{"duration": 375}' style="fill:lightgrey" size="32"></ng-md-icon>
+</md-button>
+-->
+            </div>
+
+        </md-card>
+    </center>
+
+    <audio id="DialerTune">
+        <source src="audio/ring.mp3" type="audio/mpeg">
+    </audio>
+</md-content>

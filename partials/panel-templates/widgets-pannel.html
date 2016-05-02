@@ -1,0 +1,40 @@
+<!-- This is the widgets panel template -->
+<div class="md-framework-parent-panel-layout" style="overflow-y:auto;">
+    <div class="md-framework-panel-content-container" layout="column" layout-align="start start">
+        <!-- <panelcontrol-component></panelcontrol-component> -->
+        <!-- <div class="md-framework-pannel-widgettray">
+			<md-content style="background:rgba(0,0,0,0) !important;" layout="row" layout-wrap>
+				<clock-component></clock-component>
+		        <weather-component></weather-component>
+		        <userprofile-component></userprofile-component>
+		        <calender-component></calender-component>
+		        <instagram-component></instagram-component>
+		        <piecharts-component></piecharts-component>
+		        <linecharts-component></linecharts-component>
+		        <radarcharts-component></radarcharts-component>
+		        <doughnutcharts-component></doughnutcharts-component>
+		        <barcharts-component></barcharts-component>
+			</md-content>
+		</div> -->
+        <!--
+        <div gridster="appGridsterOpts" class="md-framework-pannel-apptray">
+            <ul>
+                <li gridster-item="widgetItemMap" ng-repeat="componentdata in allWidgets | filter:globalSearchKeyword">
+                    <div component-generator componentdata="componentdata" component="componentdata.name"></div>
+                </li>
+            </ul>
+        </div>
+-->
+        <perfect-scrollbar class="systemTrayScroller" wheel-propagation="false" wheel-speed="2" layout="row" layout-align="center start">
+            <div layout="row" layout-align="center start" layout-wrap class="md-framework-pannel-apptray">
+                <div ng-repeat="componentdata in allWidgets | filter:globalSearchKeyword" flex-sm="100" flex-md="40" flex-lg="30" flex-gt-lg="30" layout="column" layout-align="start center" class="widgetPanel-item">
+                    <img src="{{componentdata.image}}">
+                    <p>{{componentdata.Name}}</p>
+                    <md-icon md-svg-icon="icons/{{componentdata.icon}}"></md-icon>
+
+                </div>
+
+            </div>
+        </perfect-scrollbar>
+    </div>
+</div>

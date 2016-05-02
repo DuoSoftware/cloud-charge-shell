@@ -1,0 +1,34 @@
+[
+    {
+        "shellRelationship": "DuoWorld Alpha Shell v 1.0",
+        "panelDescription": "Framework shell applications panel",
+        "panelTitle": "applications",
+        "pannnelDirectiveContentTemplate": "partials/panel-templates/applications-pannel.html",
+        "panelArrangement": 0,
+        "pannelLayoutProperty": "secondary"
+	},
+    {
+        "shellRelationship": "DuoWorld Alpha Shell v 1.0",
+        "panelDescription": "Framework shell collections panel",
+        "panelTitle": "collections",
+        "pannnelDirectiveContentTemplate": "partials/panel-templates/collections-pannel.html",
+        "panelArrangement": 1,
+        "pannelLayoutProperty": "primary"
+	},
+    {
+        "shellRelationship": "DuoWorld Alpha Shell v 1.0",
+        "panelDescription": "Framework shell wiget panel",
+        "panelTitle": "widgets",
+        "pannnelDirectiveContentTemplate": "partials/panel-templates/widgets-pannel.html",
+        "panelArrangement": 2,
+        "pannelLayoutProperty": "secondary"
+	},
+    {
+        "shellRelationship": "DuoWorld Alpha Shell v 1.0",
+        "panelDescription": "Framework shell collections panel 2",
+        "panelTitle": "collections 2",
+        "pannnelDirectiveContentTemplate": "partials/panel-templates/widgets-pannel.html",
+        "panelArrangement": 3,
+        "pannelLayoutProperty": "secondary"
+	}
+];

@@ -1,0 +1,76 @@
+{
+    "docklayoutconfiguration": {
+        "pannelcollection": [
+            {
+                "shellRelationship": "DuoWorld Alpha Shell v 1.0",
+                "panelDescription": "Framework shell applications panel",
+                "panelTitle": "applications",
+                "pannnelDirectiveContentTemplate": "partials/panel-templates/applications-pannel.html",
+                "panelArrangement": 0,
+                "pannelContentCollectionType": "application-component",
+                "row": 0,
+                "col": 0
+			},
+            {
+                "shellRelationship": "DuoWorld Alpha Shell v 1.0",
+                "panelDescription": "Framework shell widgets panel",
+                "panelTitle": "widgets",
+                "pannnelDirectiveContentTemplate": "partials/panel-templates/widgets-pannel.html",
+                "panelArrangement": 1,
+                "pannelContentCollectionType": "widget-component",
+                "row": 0,
+                "col": 1
+			},
+            {
+                "shellRelationship": "DuoWorld Alpha Shell v 1.0",
+                "panelDescription": "Framework shell custom panel",
+                "panelTitle": "collection",
+                "pannnelDirectiveContentTemplate": "partials/panel-templates/collections-pannel.html",
+                "panelArrangement": 2,
+                "pannelContentCollectionType": "various-component",
+                "row": 0,
+                "col": 2
+			}
+		],
+        "dockoptions": {
+            "transitioneffect": "coverflow",
+            "layoutdirection": "horizontal",
+            "pagination": true,
+            "looppannels": false
+        }
+    },
+    "themeconfiguration": {
+        "palettename": "indigo",
+        "primarypalette": "#3F51B5",
+        "accentpalette": "#FF4081"
+    },
+    "backgroundconfiguration": [
+        {
+            "backgroundtype": "solid",
+            "backgroundtypeactive": false,
+            "backgroundcolor": "#FF4081"
+		},
+        {
+            "backgroundtype": "gradient",
+            "backgroundtypeactive": false,
+            "backgroundgradientconfig": {
+                "color1": "#FF4081",
+                "color2": "#3F51B5",
+                "orientation": "diagonalup"
+            }
+		},
+        {
+            "backgroundtype": "image",
+            "backgroundtypeactive": true,
+            "backgroundimageconfig": {
+                "imageurl": "images/shellassets/background/blur-background12.jpg",
+                "imageblur": {
+                    "status": true,
+                    "amount": 10
+                },
+                "textureoverlay": false,
+                "vignetteoverlay": false
+            }
+		}
+	]
+}

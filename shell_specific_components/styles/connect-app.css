@@ -1,0 +1,842 @@
+    /*PAGE STRUCTURE FORMAT*/
+
+    html,
+    body {
+        background: #ececec;
+    }
+    @font-face {
+        font-family: materialFont;
+        src: url(../fonts/Roboto-Light.ttf);
+    }
+    [ng\:cloak],
+    [ng-cloak],
+    .ng-cloak {
+        display: none !important;
+    }
+    .iconColor {
+        color: rgb(181, 181, 181) !important;
+    }
+    .md-menu {
+        padding: 0;
+    }
+    .md-button {
+        margin: 0px !important;
+        min-width: 0 !important;
+    }
+    .md-select-label {
+        width: 100%;
+    }
+    md-select {
+        padding-bottom: 26px;
+    }
+    ul {
+        list-style: none;
+    }
+    md-input-container.md-default-theme label {
+        color: rgba(0, 0, 0, 0.64);
+    }
+    /*PAGE STRUCTURE FORMAT*/
+    /*Media Queries Start*/
+
+    @media screen and (max-width: 960px) {
+        .md-whiteframe-z1 {
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 599px) {
+        .blankspace {
+            display: none;
+        }
+        .header_container_filter {
+            margin-top: 7px !important;
+            margin-bottom: 7px !important;
+        }
+    }
+    /*Media Queries End*/
+    /*Chat Program css starting*/
+
+    .dialButtons {
+        height: 45px;
+        width: 70px;
+        margin: 0px !important;
+        min-width: 0 !important;
+    }
+    .md-card-right {
+        position: relative;
+        margin-right: 12px;
+        animation: chatMessage 0.5s 1;
+        -moz-animation: chatMessage 0.5s 1;
+        -webkit-animation: chatMessage 0.5s 1;
+    }
+    @keyframes chatMessage {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        80% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes chatMessage {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        80% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @-moz-keyframes chatMessage {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        80% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    .md-card-right:before {
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 20px;
+        border-top: 5px solid transparent;
+        border-left: 10px solid #2196F3;
+        border-bottom: 5px solid transparent;
+        left: 100%;
+    }
+    .md-card-left {
+        position: relative;
+        margin-left: 12px;
+        animation: chatMessage 0.5s 1;
+        -moz-animation: chatMessage 0.5s 1;
+        -webkit-animation: chatMessage 0.5s 1;
+    }
+    .md-card-left:before {
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 20px;
+        border-top: 5px solid transparent;
+        border-left: 10px solid #fafafa;
+        border-bottom: 5px solid transparent;
+        right: 100%;
+        transform: rotate(180deg);
+    }
+    #banner {
+        background-color: #1976D2;
+        width: 40%;
+        /* position: fixed; */
+        color: #B6B6B6;
+        height: 80vh;
+        box-shadow: rgba(123, 114, 108, 0.75) 12px 15px 13px;
+    }
+    md-card md-card-content {
+        padding: 10px;
+    }
+    /*Chat Program css ending*/
+    /*Animation Definitions Start*/
+
+    @keyframes fromBottom {
+        0% {
+            transform: translateY(250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @keyframes fromTop {
+        0% {
+            transform: translateY(-250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @-moz-keyframes fromBottom {
+        0% {
+            transform: translateY(250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @-moz-keyframes fromTop {
+        0% {
+            transform: translateY(-250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @-moz-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes fromBottom {
+        0% {
+            transform: translateY(250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @-webkit-keyframes fromTop {
+        0% {
+            transform: translateY(-250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    #inline > * {
+        display: inline-block;
+    }
+    .my-animation.ng-enter {
+        /* standard transition code */
+        transition: 1s linear all;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+    }
+    .my-animation.ng-enter-stagger {
+        /* this will have a 100ms delay between each successive leave animation */
+        transition-delay: .3s;
+        /* in case the stagger doesn't work then the duration value
+   must be set to 0 to avoid an accidental CSS inheritance */
+        transition-duration: 0s;
+    }
+    .my-animation.ng-enter.ng-enter-active {
+        /* standard transition styles */
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+        -moz-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+    }
+    .tint {
+        position: relative;
+        float: left;
+        cursor: pointer;
+    }
+    .tint:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(114, 114, 114, 0);
+        -moz-transition: background .3s linear;
+        -webkit-transition: background .3s linear;
+        -o-transition: background .3s linear;
+        transition: background .3s linear;
+    }
+    .tint:hover:before {
+        background: rgba(114, 114, 114, .1);
+    }
+    @-webkit-keyframes scaleAnimation {
+        from {
+            -webkit-transform: scale(0.1)
+        }
+        to {
+            -webkit-transform: scale(1);
+        }
+    }
+    @-moz-keyframes scaleAnimation {
+        from {
+            -moz-transform: scale(0.1)
+        }
+        to {
+            -moz-transform: scale(1)
+        }
+    }
+    @-o-keyframes scaleAnimation {
+        from {
+            -o-transform: scale(0.1) translate(0px);
+        }
+        to {
+            -o-transform: scale(1)
+        }
+    }
+    /*Animation Definitions end*/
+    /*Animation for individual elements start*/
+
+    .card_container,
+    .header_container {
+        animation: fromBottom 1.6s 1;
+        -moz-animation: fromBottom 1.6s 1;
+        -webkit-animation: fromBottom 1.6s 1;
+    }
+    .partial {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -moz-animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+        -moz-animation-name: fadeIn;
+    }
+    #userProfilePic {
+        -webkit-animation: scaleAnimation 1.5s 1 ease forwards;
+        -moz-animation: scaleAnimation 1.5s 1 ease;
+        -o-animation: scaleAnimation 1.5s 1 ease;
+    }
+    #widgetuserProfilePic {
+        -webkit-animation: callerPicAnim 1.5s 1 ease forwards;
+        -moz-animation: callerPicAnim 1.5s 1 ease;
+        -o-animation: callerPicAnim 1.5s 1 ease;
+    }
+    #backBtn {
+        animation: fromTop .4s 1;
+        -moz-animation: fromTop .4s 1;
+        -webkit-animation: fromTop .4s 1;
+    }
+    /*Animation for individual elements end*/
+
+    .notify {
+        background-color: rgb(187, 222, 251);
+    }
+    .spinner {
+        width: 2px;
+        height: 2px;
+        background-color: rgb(63, 81, 181);
+        position: absolute;
+        margin-top: 75px;
+        left: 50%;
+        z-index: 1;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.5s infinite ease-in-out;
+        -moz-animation: sk-scaleout 1.5s infinite ease-in-out;
+        animation: sk-scaleout 1.5s infinite ease-in-out;
+    }
+    .spinner1 {
+        width: 2px;
+        height: 2px;
+        background-color: #F5B544;
+        position: absolute;
+        margin-top: 75px;
+        left: 50%;
+        z-index: 1;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.5s infinite ease-in-out;
+        -moz-animation: sk-scaleout 1.5s infinite ease-in-out;
+        animation: sk-scaleout 1.5s infinite ease-in-out;
+        animation-delay: 1.0s;
+    }
+    @-webkit-keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(150.0);
+            opacity: 0;
+        }
+    }
+    @-moz-keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        100% {
+            -webkit-transform: scale(150.0);
+            transform: scale(150.0);
+            opacity: 0;
+        }
+    }
+    @keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        100% {
+            -webkit-transform: scale(150.0);
+            transform: scale(150.0);
+            opacity: 0;
+        }
+    }
+    .calling {
+        background-color: rgba(9, 15, 45, 0.81) !important;
+    }
+    .fab_button_animation {
+        position: fixed;
+        bottom: 22px;
+        right: 22px;
+        width: 54px;
+        height: 54px;
+        border-radius: 100px
+    }
+    .startCall {
+        animation: startcall 0.5s ease-in-out;
+        -moz-animation: startcall 0.5s ease-in-out;
+        -webkit-animation: startcall 0.5s ease-in-out;
+    }
+    @keyframes startcall {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes startcall {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @-moz-keyframes startcall {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    .endCall {
+        animation: endcall 0.5s ease-in-out;
+        -moz-animation: endcall 0.5s ease-in-out;
+        -webkit-animation: endcall 0.5s ease-in-out;
+    }
+    @keyframes endcall {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes endcall {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    @-moz-keyframes endcall {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    .floatingBtn {
+        animation: floating 1s ease-in-out;
+    }
+    @-webkit-keyframes floating {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    .md-dialog-container {
+        background-color: rgba(13, 14, 15, 0.38);
+    }
+    .rn-carousel-control {
+        color: lightgray;
+    }
+    #noteButton {
+        position: absolute;
+        top: 100px;
+        right: 0px;
+    }
+    .rn-carousel-control.rn-carousel-control-next {
+        height: 100%;
+        top: 0;
+        right: 0px !important;
+        width: 10%;
+        text-align: center;
+        padding-top: 30%;
+        opacity: 0;
+    }
+    .rn-carousel-control.rn-carousel-control-next:hover {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(33, 33, 35, 0.78));
+    }
+    .rn-carousel-control.rn-carousel-control-prev {
+        height: 100%;
+        top: 0;
+        left: 0px !important;
+        width: 10%;
+        text-align: center;
+        padding-top: 30%;
+        opacity: 0;
+    }
+    .rn-carousel-control.rn-carousel-control-prev:hover {
+        background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(33, 33, 35, 0.78));
+    }
+    .md-dialog-container {
+        background-color: rgba(13, 14, 15, 0.77) !important;
+    }
+    .shrinked-view {
+        max-width: 50vw;
+    }
+    @font-face {
+        font-family: materialFont;
+        src: url(fonts/Roboto-Light.ttf);
+    }
+    .dialButtons {
+        height: 45px;
+        width: 70px;
+        margin: 0px !important;
+        min-width: 0 !important;
+    }
+    .content div center button {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+    }
+    .content:hover button {
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0s;
+    }
+    .md-header-items-container {
+        padding-left: 105px;
+    }
+    .md-tabs {
+        padding: 6px;
+    }
+    md-tabs .md-tab {
+        color: #9DB1C4 !important;
+    }
+    md-tabs md-ink-bar {
+        background: rgb(212, 214, 228);
+    }
+    md-list md-list-item button.md-button:not([disabled]):hover {
+        background-color: rgb(212, 214, 228);
+    }
+    md-backdrop.md-bottom-sheet-backdrop {
+        z-index: 1;
+    }
+    .md-scroll-mask {
+        z-index: 1 !important;
+    }
+    #conversation-title {
+        animation: fadeIn 0.6s ease-in-out;
+        -moz-animation: fadeIn 0.6s ease-in-out;
+        -webkit-animation: fadeIn 0.6s ease-in-out;
+    }
+    .dropPane {
+        opacity: 1;
+        border-radius: 100%;
+        line-height: 10px;
+        margin: 5px !important;
+        background-color: rgba(0, 0, 0, 0.26);
+        fill: whitesmoke;
+        /*
+    animation-delay: 0.4s;
+-webkit-animation-fill-mode: forwards;
+*/
+    }
+    .dropPane:hover {
+        border-radius: 100%;
+        line-height: 10px;
+        background-color: rgba(255, 255, 255, 0.21);
+    }
+    .dropPane.ng-enter {
+        animation: popUp 0.5s ease-in;
+        -moz-animation: popUp 0.5s ease-in;
+        -webkit-animation: popUp 0.5s ease-in;
+    }
+    .dropPane.ng-leave {
+        animation: popDown 0.4s ease-in;
+        -moz-animation: popDown 0.4s ease-in;
+        -webkit-animation: popDown 0.4s ease-in;
+    }
+    .hideDropPane {
+        /*    visibility: hidden;*/
+        border-radius: 100%;
+        line-height: 10px;
+        margin: 5px !important;
+        background-color: rgba(0, 0, 0, 0.26);
+        fill: whitesmoke;
+        animation: popDown 0.5 ease-in;
+        animation-iteration-count: infinite;
+        -moz-animation: popDown 0.5 ease-in;
+        -moz-animation-iteration-count: infinite;
+        -webkit-animation: popDown 0.5 ease-in;
+        -webkit-animation-iteration-count: infinite;
+    }
+    @keyframes popUp {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        80% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes popUp {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        80% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @-moz-keyframes popUp {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        80% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @keyframes popDown {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0);
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+    @-webkit-keyframes popDown {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0);
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+    @-moz-keyframes popDown {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0);
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+    #contactListButtons {
+        border-radius: 100%;
+        line-height: 10px;
+        background-color: rgba(255, 255, 255, 0.76);
+        animation: popUp 0.3s ease-in;
+        -moz-animation: popUp 0.3s ease-in;
+        -webkit-animation: popUp 0.3s ease-in;
+    }
+    .quickNote {
+        position: absolute;
+        min-height: 200px;
+        min-width: 200px;
+        width: 200px;
+        height: 200px;
+        resize: both;
+        overflow: auto;
+        top: 10px;
+        left: 10px;
+    }
+    .quickNote.ng-enter {
+        animation: popUp 0.4s ease-in;
+        -moz-animation: popUp 0.4s ease-in;
+        -webkit-animation: popUp 0.4s ease-in;
+    }
+    .quickNote.ng-leave {
+        animation: popDown 0.4s ease-in;
+        -webkit-animation: popDown 0.4s ease-in;
+        -moz-animation: popDown 0.4s ease-in;
+    }
+    .callerView {
+        width: 100%;
+        height: 40vh;
+        background-color: rgba(63, 81, 181, 0.75);
+    }
+    .callerView.ng-enter {
+        animation: expandContact 0.7s ease-in;
+        -moz-animation: expandContact 0.7s ease-in;
+        -webkit-animation: expandContact 0.7s ease-in forwards;
+    }
+    .callerView.ng-leave {
+        -webkit-animation: fadeOut 0.2s ease-in;
+    }
+    @-webkit-keyframes expandContact {
+        0% {
+            width: calc(100% - 26px);
+            height: 100px;
+            margin: 13px;
+            background-color: aliceblue;
+        }
+        10% {
+            width: calc(100% - 26px);
+            height: 100px;
+            margin: 13px;
+            background-color: aliceblue;
+        }
+        100% {
+            margin: 0px;
+            height: 40vh;
+            background-color: rgba(63, 81, 181, 0.75);
+        }
+    }
+    .callText {
+        /*    margin-top: 90px;*/
+        color: lightgrey;
+        font-size: large;
+        margin: 0px;
+        margin-top: 30px;
+    }
+    /*
+.callText.ng-enter {
+    -webkit-animation: dropDown 1s ease-in;
+}
+@-webkit-keyframes dropDown {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(100px);
+    }
+}
+*/
+
+    .callerText {
+        width: calc(100% - 66px);
+        position: absolute;
+        top: 0px;
+        /*    left: 100px;*/
+        -webkit-animation: callerTextAnim 1s ease-in forwards;
+    }
+    @-webkit-keyframes callerTextAnim {
+        0% {
+            margin-top: 0px;
+        }
+        100% {
+            margin-top: 110px;
+            width: 100%;
+            /*        left: 0px;*/
+        }
+    }
+    @-webkit-keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            /*        left: 0px;*/
+        }
+    }
+    @-webkit-keyframes callerPicAnim {
+        0% {
+            margin: 12px 16px;
+            transform: scale(1);
+        }
+        100% {
+            margin-top: 60px;
+            margin-left: 130px;
+            transform: scale(1.5);
+        }
+    }
+    .openedConversation.ng-enter {
+        -webkit-animation: expandConversation 0.3s ease-in forwards;
+    }
+    /*
+    .openedConversation.ng-leave {
+        -webkit-animation: minimizeConversation 0.5s ease-in;
+    }
+*/
+
+    .openedConvoList.ng-enter {
+        -webkit-animation: expandConversation 0.3s ease-in forwards;
+    }
+    /*
+    .openedConvoList.ng-leave {
+      -webkit-animation: minimizeConversation 0.5s ease-in;
+  }
+*/
+
+    @-webkit-keyframes expandConversation {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    @-webkit-keyframes minimizeConversation {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(0);
+        }
+    }
+    #contactList.ng-enter {
+        -webkit-animation: expandConversation 0.3s 0.3s ease-in forwards;
+    }
+    #contactCard.ng-enter {
+        -webkit-animation: expandConversation 0.3s ease-in forwards;
+    }
+    #contactCard.ng-leave {
+        -webkit-animation: minimizeConversation 0.3s ease-in;
+    }
+    #activityItem.ng-enter {
+        -webkit-animation: popUp 0.5s ease-in forwards;
+    }
+    md-fab-toolbar .md-fab-toolbar-wrapper {
+        height: 48px !important;
+    }

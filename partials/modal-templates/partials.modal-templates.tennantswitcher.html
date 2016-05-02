@@ -1,0 +1,46 @@
+<!-- partials.modal-templates.tennantswitcher.html -->
+<!-- ng-scrollbars ng-scrollbars-config="frameworkScrollconfig.scrollDefault -->
+
+<md-dialog aria-label="Tennant Collection">
+    <div class="tennantCollectionModalContainer" layout="column" layout-align="start center">
+        <div class="tennantCollectionModalContainerHeader" layout="row" layout-align="start start">
+            <div class="tennantCollectionModalHeaderIconHolder" layout="column">
+                <md-icon md-svg-icon="icons/ic_swap_vert_circle_24px.svg" class="switchTennantHeaderIcon" alt="switch tennants"></md-icon>
+            </div>
+            <div class="tennantCollectionModalHeaderTextHolder" layout="column" layout-align="center start">
+                <span>Tennant Switcher</span>
+            </div>
+        </div>
+        <div class="tennantCollectionModalContainerSearch">
+            <md-input-container md-no-float class="searchInputContainer">
+                <md-icon md-svg-src="icons/ic_search_24px.svg"></md-icon>
+                <input ng-model="tennantSwitchSearch" type="text" placeholder="Search Tennant's">
+            </md-input-container>
+        </div>
+        <div class="tennantCollectionModalContainerContent" layout="column" layout-align="start center">
+            <tennantswitchlist-component ng-repeat="tennant in newTennantCollection | filter:tennantSwitchSearch" ng-click="makeSwitchTennant(tennant.TenantID)" tennantid="tennant.TenantID"></tennantswitchlist-component>
+        </div>
+    </div>
+</md-dialog>
+
+
+<!-- <md-dialog md-theme="{{shellConfig.themeconfiguration.palettename}}" md-theme-watch="true">
+    <div layout="column" style="width:100%;height:100%;min-height:500px;min-width:500px;background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};color:whitesmoke;" layout-align="start center">
+
+        <md-icon md-svg-icon="icons/ic_swap_vert_circle_24px.svg" style="color:whitesmoke;transform:scale(15);    margin: 0px;
+    margin-top: 50px;
+    margin-left: 50px;
+    opacity: 0.1;position:absolute;" alt="switch tennants"></md-icon>
+        <p style="font-size:34px;font-weight:300;margin:15px;">Tennant Switcher</p>
+
+        <md-input-container md-no-float flex="100" style="width:80%;" class="md-accent">
+            <md-icon md-svg-src="icons/ic_search_24px.svg"></md-icon>
+            <input class="md-accent" ng-model="tennantSwitchSearch" type="text" placeholder="Search Tennant's">
+        </md-input-container>
+
+        <div class="tennantCollectionModalContainerContent" layout="column" layout-align="start center">
+            <tennantswitchlist-component ng-repeat="tennant in newTennantCollection | filter:tennantSwitchSearch" ng-click="makeSwitchTennant(tennant.TenantID)" tennantid="tennant.TenantID"></tennantswitchlist-component>
+        </div>
+    </div>
+</md-dialog>
+ -->

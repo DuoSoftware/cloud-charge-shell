@@ -1,0 +1,16 @@
+<perfect-scrollbar class="intouch-chat-container-scroller" wheel-propagation="false" wheel-speed="2" layout="column">
+<md-list>
+<md-list-item class="md-2-line intouch-list-item" ng-repeat="person in users" ng-click="message(person.username)">
+<img ng-src="data:image/png;base64,{{person.profile_pic}}" err-src="images/intouch-images/contacts.png" class="md-avatar intouch-list-item-icon" alt="">
+<div class="md-list-item-text">
+    <h3 style="color:white;font-weight: 400;
+    font-size: 15px;">{{person.fname}}</h3>
+    <!--                <p style="color: rgba(255, 255, 255, 0.47);font-weight:200;font-size:13px;">last message</p>-->
+    <p ng-if="person.count>0" class="md-secondary" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}}; font-weight:600;font-size:18px;">{{person.count}}</p>
+</div>
+</md-list-item>
+</md-list>
+</perfect-scrollbar>
+<div class="intouch-tab-title">
+    <p>Conversations</p>
+</div>

@@ -1,0 +1,301 @@
+<div layout="column" layout-align="start center" layout-padding style="
+    width: 100%;margin-top: 48px; padding:0px;background-color: rgba(0, 0, 0, 0.0);transition: all 0.2s cubic-bezier(.55, 0, .1, 1);" ng-esc="closeCustomizingTray()" tabindex="0">
+
+
+
+    <div class="selectedSystemPanel" ng-class="{'selectedSystemPanel-visible' : showTransition}" droppable>
+        <perfect-scrollbar class="systemTrayScroller" wheel-propagation="false" wheel-speed="2">
+            <div gridster="gridsterOpts">
+                <ul>
+                    <li gridster-item="customItemMap" ng-repeat="app in selectedPanel.panelComponents">
+                        <md-button class="selectedSystemPanel-item" ng-dblclick="removeAppFromPanel(app)">
+                            <div ng-if="app.comp_Type == 'appshortcut'" class="systemPanel-appItem" layout="column" layout-align="start center">
+                                <img src="{{app.comp_Data.iconUrl}}" err-src="images/appIcons/untitledapplication.png">
+                                <p>{{app.comp_Name}}</p>
+                            </div>
+                            <div ng-if="app.comp_Type !== 'appshortcut'">
+                                <img src="{{app.comp_extra.widgetImage}}">
+                            </div>
+                        </md-button>
+                    </li>
+                </ul>
+            </div>
+        </perfect-scrollbar>
+    </div>
+
+
+    <md-button class="md-fab md-mini md-accent editPaneDoneButton" ng-class="{'editPaneDoneButton-visible' : showTransition}" ng-show="panelCustomizingTray" ng-click="closeCustomizingTray();">
+        <md-icon md-svg-icon="icons/ic_done_24px.svg" style="color:whitesmoke;"></md-icon>
+    </md-button>
+
+    <div class="appTray" ng-class="{'appTray-visible' : showTransition}" layout="row" layout-align="start start" layout-wrap style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}}">
+
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Applications">
+                <!--                <perfect-scrollbar class="appTrayScroller" wheel-propagation="false" wheel-speed="2" layout="row">-->
+                <md-content class="appTray-content" id="appTray-content" layout="row" layout-wrap>
+
+                    <div flex="90" layout="row" layout-wrap>
+                        <md-button ng-repeat="app in allApps | filter:filterAlreadyAdded" style="text-transform: none;
+    padding: 3px;">
+                            <div class="appItem" layout="column" layout-align="start center" draggable id="app" panel="selectedPanel.panelTitle">
+                                <img src="{{app.iconUrl}}" err-src="images/appIcons/untitledapplication.png">
+                                <p>{{app.Name}}</p>
+                            </div>
+                        </md-button>
+                    </div>
+
+                    <div class="appTray-nav" layout="column" layout-align="center center">
+                        <md-button ng-click="goToPrevStep()">
+                            <md-icon md-svg-icon="icons/ic_keyboard_arrow_up_24px.svg" alt="up" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}}"></md-icon>
+                        </md-button>
+                        <md-button ng-click="goToNextStep()">
+                            <md-icon md-svg-icon="icons/ic_keyboard_arrow_down_24px.svg" alt="down" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}}"></md-icon>
+                        </md-button>
+                    </div>
+
+                </md-content>
+                <!--                </perfect-scrollbar>-->
+            </md-tab>
+            <md-tab label="Widgets">
+                <!--                <perfect-scrollbar class="appTrayScroller" wheel-propagation="false" wheel-speed="2" layout="row">-->
+                <md-content class="appTray-content" id="appTray-content">
+                    <md-button ng-repeat="app in allWidgets | filter:filterAlreadyAdded" style="text-transform: none;
+    padding: 3px;">
+                        <div class="widgetItem" layout="column" layout-align="start center" draggable id="app" panel="selectedPanel.panelTitle">
+                            <img src="{{app.image}}">
+                        </div>
+                    </md-button>
+                </md-content>
+                <!--                </perfect-scrollbar>-->
+            </md-tab>
+        </md-tabs>
+    </div>
+    </perfect-scrollbar>
+
+</div>
+
+<style>
+    .editPaneDoneButton {
+        transition: all 0.2s cubic-bezier(.55, 0, .1, 1) !important;
+        position: fixed;
+        right: 5vw;
+        z-index: 10;
+        transform: scale(0) !important;
+        bottom: 120px;
+    }
+
+    .editPaneDoneButton-visible {
+        transition-delay: 0.3s !important;
+        transform: scale(1) !important;
+    }
+
+    .appItem {
+        width: 70px;
+        height: 70px;
+        margin: 5px;
+        color: lightgrey;
+        font-size: 20px;
+    }
+
+    .widgetItem {
+        width: 100px;
+        height: 115px;
+        margin: 5px;
+    }
+
+    .widgetItem img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .widgetItem p {
+        font-size: 13px;
+        font-weight: 200;
+        color: whitesmoke;
+        margin: 0px;
+    }
+
+    .systemPanel-appItem {
+        width: 100%;
+        height: 205px;
+    }
+
+    .systemPanel-appItem img {
+        width: 84px;
+        height: 84px;
+        border-radius: 100%;
+    }
+
+    .systemPanel-appItem p {
+        color: #fff;
+        font-weight: 400;
+        margin: 15px;
+        text-transform: none;
+        white-space: normal !important;
+        line-height: 18px;
+        font-size: 14px;
+        text-shadow: 1px 1px 2px rgba(50, 50, 50, 1);
+    }
+
+    .appItem img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .appItem p {
+        margin: 0px;
+        font-size: 12px;
+    }
+
+    .panelHeader {
+        color: lightgrey;
+    }
+
+    .panelHeader md-button {
+        color: darkgrey;
+        margin: 5px;
+    }
+
+    .cover {
+        background-image: url(images/cover2.jpg);
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.3;
+    }
+
+    .systemPanelTrayScroller {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .appTrayScroller {
+        height: 90px;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .panelCustomizingTray {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        /*        background-color: rgba(0, 0, 0, 0.75);*/
+        z-index: 3;
+        background-image: url(images/cover5.jpg);
+        background-size: cover;
+    }
+    /*
+    .panelCustomizingTray.ng-enter { animation: expandpanelCustomizingTray 0.5s ease-in; }
+*/
+
+    @-webkit-keyframes expandpanelCustomizingTray {
+        0% {
+            transform: scale(1);
+            transform-origin: center top;
+        }
+        100% {
+            transform: scale(0.7);
+            transform-origin: center 50px;
+        }
+    }
+
+    @-webkit-keyframes leavepanelCustomizingTray {
+        0% {
+            transform: scale(0.7);
+            transform-origin: center 50px;
+        }
+        100% {
+            transform: scale(1);
+            transform-origin: center top;
+        }
+    }
+
+    @-webkit-keyframes slideIn {
+        0% {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .selectedSystemPanel {
+        height: calc(100vh - 48px);
+        overflow: hidden;
+        width: 100vw;
+        /*        animation: expandpanelCustomizingTray 0.2s ease-in;*/
+        /*        transform: scale(0.7);*/
+        transition: all 0.3s cubic-bezier(.55, 0, .1, 1);
+        transform-origin: center 50px;
+    }
+
+    .selectedSystemPanel-visible {
+        transform: scale(0.7);
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 1px 1px 25px 1px #262424;
+    }
+
+    .appTray {
+        height: 140px;
+        overflow: hidden;
+        /*        padding: 10px;*/
+        width: 100vw;
+        position: fixed;
+        bottom: 0px;
+        transform: translateY(50vh);
+        transition: all 0.3s cubic-bezier(.55, 0, .1, 1);
+        /*        visibility: hidden;*/
+        /*        animation: slideIn 0.2s 0.1s ease-in forwards;*/
+    }
+
+    .appTray-visible {
+        transition-delay: 0.1s;
+        transform: translateY(0vh);
+    }
+
+    .selectedSystemPanel-app {
+        transform: scale(0.7);
+        transition: all 0.3s ease-in;
+    }
+
+    @-webkit-keyframes scaleDown {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0.5);
+        }
+    }
+
+    .appTray-content {
+        width: 100vw;
+        background-color: rgba(255, 255, 255, 0) !important;
+        height: 85px;
+        overflow: hidden;
+    }
+
+    .selectedSystemPanel-item {
+        text-transform: none;
+        padding: 3px;
+        width: inherit;
+        height: inherit;
+        background-color: 'app.color';
+    }
+
+    .appTray-nav {
+        position: fixed;
+        bottom: : 0px;
+        width: 36px;
+        height: 85px;
+        right: 1vw;
+    }
+
+</style>

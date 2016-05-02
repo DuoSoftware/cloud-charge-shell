@@ -1,0 +1,65 @@
+<div class="row" style="margin-bottom:20px;height:50px;" layout-padding>
+    <md-input-container style="padding-bottom:0px;width:100%;" class="md-accent" md-no-float class="md-block">
+    <md-icon md-svg-src="icons/ic_search_24px.svg" style="fill: whitesmoke;"></md-icon>
+    <input id="searchinput" class="md-accent" ng-model="$root.filterNumber" placeholder="Search">
+</md-input-container>
+</div>
+<div>
+    <perfect-scrollbar class="intouch-chat-container-scroller" wheel-propagation="false" wheel-speed="2" layout="column">
+    <md-list>
+    <!-- <subheader class="contact-list-sub-header" ng-if="person.status == 'online'" >online users</subheader> -->
+    <md-list-item ng-mouseleave="show = false" ng-mouseenter="show=true" class="md-2-line intouch-list-item" ng-repeat="person in users | filter:$root.filterNumber| orderBy: 'name'" ng-if="person.status == 'online'">
+    <img ng-src="data:image/png;base64,{{person.profile_pic}}" err-src="images/intouch-images/contacts.png" class="md-avatar intouch-list-item-icon" alt="" ng-click="showProfile($event,person);" style="margin-left:10px;margin-top:18px;"><!-- box-shadow:{{$root.shellConfig.themeconfiguration.accentpalette}}  0px 0px 20px 1px; -->
+    <div flex ng-if="!show" class="md-list-item-text" layout="row" layout-align="space-between center">
+        <p style="color:whitesmoke;font-weight:400;
+        font-size: 15px;">{{person.fname}} {{person.lname}}</p>                                                            <!-- <p ng-if="person.count>0" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};">{{person.count}}</p> -->
+        <p style="margin:16px"><img src="images/intouch-images/online.png"></p>
+
+    </div>
+    <div ng-if="show" class="md-list-item-text" flex layout="row" layout-align="space-around center">
+        <md-button id="contactListButtons" ng-click="call(person.username)" aria-label="call">
+        <md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.primarypalette}};"></md-icon>
+    </md-button>
+
+    <md-button id="contactListButtons" ng-click="videocall(person.username)" aria-label="videocall">
+    <md-icon md-svg-icon="icons/ic_videocam_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.primarypalette}};"></md-icon>
+</md-button>
+
+<md-button id="contactListButtons" ng-click="message(person.username)" aria-label="message">
+<md-icon md-svg-icon="icons/ic_message_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.primarypalette}};"></md-icon>
+</md-button>
+</div>
+
+</md-list-item>
+<!-- <subheader class="contact-list-sub-header" ng-if="person.status == 'offline'">offline users</subheader> -->
+<md-list-item ng-mouseleave="show = false" ng-mouseenter="show=true" class="md-2-line intouch-list-item" ng-repeat="person in users | filter:$root.filterNumber| orderBy: 'name'" ng-if="person.status == 'offline'">
+<img ng-src="data:image/png;base64,{{person.profile_pic}}" err-src="images/intouch-images/contacts.png" class="md-avatar intouch-list-item-icon" alt="" ng-click="showProfile($event,person);" style="margin-left:10px;margin-top:18px;">
+
+<div flex ng-if="!show" class="md-list-item-text" layout="row" layout-align="space-between center">
+    <p flex="90" style="color:whitesmoke;font-weight: 400;
+    font-size: 15px;">{{person.fname}} {{person.lname}}</p>
+    <!-- <p ng-if="person.count>0" style="color:rgb(25, 118, 210);margin:0px; ">{{person.count}}</p> -->
+    <p style="margin:16px"><img src="images/intouch-images/offline.png"></p>
+</div>
+
+<div ng-if="show" flex class="md-list-item-text" layout="row" layout-align="space-around center">
+    <md-button id="contactListButtons" ng-click="showOfflineAlert(person.username,$event)" aria-label="call">
+
+    <md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+</md-button>
+<md-button id="contactListButtons" ng-click="showOfflineAlert(person.username,$event)" aria-label="videocall">
+<md-icon md-svg-icon="icons/ic_videocam_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+</md-button>
+<md-button id="contactListButtons" ng-click="message(person.username)" aria-label="message">
+<md-icon md-svg-icon="icons/ic_message_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+</md-button>
+
+</div>
+</md-list-item>
+
+</md-list>
+</perfect-scrollbar>
+</div>
+<div class="intouch-tab-title">
+    <p>Contacts</p>
+</div>

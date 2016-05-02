@@ -1,0 +1,459 @@
+<style>
+    md-tabs {
+        height: 100%;
+    }
+
+    md-tab-item {
+        padding: 12px 16px !important;
+    }
+
+</style>
+<md-content ng-controller="duoworld-framework-shell-launcher-connect-ctrl" style="height:100% !important;">
+    <md-tabs style="
+    height: 100%;
+    width: 100%;
+    overflow: hidden;" class="md-primary" md-border-bottom md-selected="data.selectedIndex">
+
+        <!--        tab one + notification pane + home-->
+        <md-tab>
+            <md-tab-label>
+                <md-icon md-svg-icon="icons/ic_cloud_24px.svg" style="color:whitesmoke;" class="accoridanIcon" alt="All Apps"></md-icon>
+            </md-tab-label>
+            <md-content style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};height: calc(100vh - 50px);">
+                <div layout="column" style="min-width: 90%;background-color: rgba(30,30,30,0.3);height: calc(100vh - 50px);padding:15px;">
+                    <!--                    nav to main app-->
+                    <div ng-if="!notConnected" layout="column" layout-align="start center" style="height:30vh;background-size:contain;background-image:url(images/intouch-images/welcome.jpg);border-radius:5px; ">
+                        <div style="height:70%;background-color: rgba(0,0,0,0.54);
+    width: 100%;" layout="column" layout-align="center center">
+                            <p style="font-size:35px;color:whitesmoke;margin:0px;">inTOUCH</p>
+                            <p style="color: darkgrey;
+    margin: 0px;">#connecting people</p>
+                        </div>
+                        <div style="width:100%;height:30%;background-color:white;" layout="row" layout-align="start center">
+                            <md-button flex class="md-accent" aria-label="inTOUCH" ui-sref="launcher.connect">Go to Main App</md-button>
+                            <div style="width:50px;height:50px;border-radius:100%;background-color:{{$root.shellConfig.themeconfiguration.accentpalette}};margin-top: -55px;
+    margin-right: 5px;" layout="row" layout-align="center center">
+                                <md-icon md-svg-icon="icons/ic_done_24px.svg" style="color:whitesmoke;"></md-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    end of nav to main app-->
+                    <!--                    date string-->
+                    <p style="font-size: 20px; margin: 10px; color: lightgrey; font-weight: 100;">{{today | date:'fullDate' }}</p>
+                    <md-list>
+                        <!--user state change notification-->
+                        <md-list-item class="md-3-line" ng-repeat="activity in activityFeed| orderBy: '-dateTime'" style="background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 5px;margin: 10px 5px;" id="activityItem">
+                            <img ng-src="data:image/png;base64,{{activity.profile_pic}}" err-src="images/intouch-images/contacts.png" class="md-avatar" alt="">
+                            <div class="md-list-item-text" ng-if="activity.type == 'stateChange'">
+                                <p style="color:white;">{{activity.fname}}<span ng-if="activity.state == 'offline'"> went</span><span ng-if="activity.state == 'online'"> came</span> {{activity.state}}</p>
+                                <p style="font-size:0.7em;color:lightgrey;">{{activity.dateTime | date:'mediumTime' }}</p>
+                            </div>
+                            <md-icon md-svg-icon="icons/ic_call_made_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="activity.state == 'offline'" ng-if="activity.type == 'stateChange'"></md-icon>
+                            <md-icon md-svg-icon="icons/ic_call_received_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="activity.state == 'online'" ng-if="activity.type == 'stateChange'"></md-icon>
+
+
+                            <div class="md-list-item-text" ng-if="activity.type == 'onlineUsers'">
+                                <p style="color:white;">{{activity.fname}} is online </p>
+                                <p style="font-size:0.7em;color:lightgrey;">{{activity.dateTime | date:'mediumTime' }}</p>
+                            </div>
+                            <md-icon md-svg-icon="icons/ic_account_circle_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="activity.type == 'onlineUsers'"></md-icon>
+
+                            <div class="md-list-item-text" ng-if="activity.type == 'outgoingCall'">
+                                <p style="color:white;">called {{activity.fname}} {{activity.lname}}</p>
+                                <p style="font-size:0.7em;color:lightgrey;">{{activity.dateTime | date:'mediumTime' }}</p>
+                            </div>
+
+                            <md-icon md-svg-icon="icons/ic_call_made_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="activity.type == 'outgoingCall'"></md-icon>
+
+
+
+                            <div class="md-list-item-text" ng-if="activity.type == 'incomingCall'">
+                                <p style="color:white;">recieved a call from {{activity.fname}} {{activity.lname}}</p>
+                                <p style="font-size:0.7em;color:lightgrey;">{{activity.dateTime | date:'mediumTime' }}</p>
+                            </div>
+                            <md-icon md-svg-icon="icons/ic_call_received_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="activity.type == 'incomingCall'"></md-icon>
+
+
+
+                            <div class="md-list-item-text" ng-if="activity.type == 'missedCall'">
+                                <p style="color:white;">missed a call from {{activity.fname}} {{activity.lname}}</p>
+                                <p style="font-size:0.7em;color:lightgrey;">{{activity.dateTime | date:'mediumTime' }}</p>
+                            </div>
+
+                            <md-icon md-svg-icon="icons/ic_call_missed_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="activity.type == 'missedCall'"></md-icon>
+                        </md-list-item>
+
+                        <!--read msg notification-->
+                        <md-list-item ng-repeat="person in users | filter:$root.filterNumber" ng-if="person.count > 0">
+                            <img ng-src="data:image/png;base64,{{person.profile_pic}}" err-src="images/intouch-images/contacts.png" class="md-avatar" alt="">
+                            <div class="md-list-item-text" style="flex:1;">
+                                <p style="color:white;margin:3px; font-size:small;">{{person.fname}} {{person.lname}}</p>
+                                <p style="font-size:0.7em;color:lightgrey;margin:2px;"> {{person.count}} Unread <span ng-if="person.count == 1">message</span> <span ng-if="person.count > 1">messages</span></p>
+                            </div>
+                            <md-icon md-svg-icon="icons/ic_message_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </md-content>
+        </md-tab>
+        <!--end of tab one-->
+
+        <!--start of tab two + dialpad + calling view-->
+        <md-tab>
+            <md-tab-label>
+                <md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:whitesmoke;" class="accoridanIcon" alt="All Apps"></md-icon>
+            </md-tab-label>
+            <md-content style="height: calc(100vh - 50px);background-color: rgba(0,0,0); overflow:hidden;
+    " layout="column" layout-align="start center">
+
+                <div style="width: 100%;
+    height: 40vh;
+    overflow: auto;" layout-padding ng-if="!itw.calling" ng-hide="dialingNumber == '' ">
+                    <md-list-item class="md-2-line" ng-repeat="person in $root.users | filter:dialingNumber| orderBy: 'name'" style="background-color: {{$root.shellConfig.themeconfiguration.primarypalette}};
+    margin: 5px;
+    border-radius: 5px;" ng-click="itwf.callFromDialpad(person)" ng-hide="dialingNumber == null">
+                        <img ng-src="data:image/png;base64,{{person.profile_pic}}" class="md-avatar" alt="">
+                        <div class="md-list-item-text" style="color:whitesmoke;">
+                            <h3>{{person.fname}} {{person.lname}}</h3>
+                            <p style="color:lightgrey; ">{{person.mobile}}</p>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="md-2-line" ng-if="$root.users" style="background-color:rgba(63, 81, 181, 0.4);margin: 5px;
+    border-radius: 5px;">
+                        <img ng-src="images/appIcons/contacts.png" class="md-avatar" alt="">
+                        <div class="md-list-item-text" style="color:whitesmoke;">
+                            <h3>Add to contacts</h3>
+                            <p style="color:lightgrey; ">{{$root.filterNumber}}</p>
+                        </div>
+                    </md-list-item>
+                </div>
+                <div ng-if="!itw.calling" ng-show="dialingNumber == ''" style="width:100%;height:40vh;overflow:auto;">
+                    <md-list>
+                        <!--out going calls-->
+                        <md-list-item class="md-3-line" style="background-color: {{$root.shellConfig.themeconfiguration.primarypalette}};
+    margin: 5px;
+    border-radius: 5px;" ng-repeat="call in callLog| orderBy: '-dateTime' | filter:filter.name" ng-click="">
+
+                            <img ng-src="data:image/png;base64, {{call.reciever.profile_pic}} " class="md-avatar " alt=" " ng-if="call.type == 'dialed'" err-src="images/intouch-images/contacts.png">
+                            <div class="md-list-item-text " ng-if="call.type == 'dialed'">
+                                <p style="color:white; ">{{call.reciever.fname}} {{call.reciever.lname}}</p>
+                                <p style="font-size:0.7em;color:lightgrey; ">{{call.dateTime | date:'mediumTime' }}<span style="float: right; font-size: 1.4em; margin-right: -10px; margin-top: -15px; color: whitesmoke; " ng-if="call.count> 1">{{call.count}}</span>
+                                </p>
+                            </div>
+
+                            <md-icon md-svg-icon="icons/ic_call_made_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="call.type == 'dialed'"></md-icon>
+
+
+
+                            <img ng-src="data:image/png;base64,{{call.dialer.profile_pic}}" class="md-avatar" alt="" ng-if="call.type == 'recieved'" err-src="images/intouch-images/contacts.png">
+                            <div class="md-list-item-text" ng-if="call.type == 'recieved'">
+                                <p style="color:white;">{{call.dialer.fname}} {{call.dialer.lname}}</p>
+                                <p style="font-size:0.7em;color:lightgrey;">{{call.dateTime | date:'mediumTime' }}<span style="float: right;
+    font-size: 1.4em;
+    margin-right: -10px;
+    margin-top: -15px;
+    color: whitesmoke;" ng-if="call.count > 1">{{call.count}}</span></p>
+                            </div>
+
+                            <md-icon md-svg-icon="icons/ic_call_received_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="call.type == 'recieved'"></md-icon>
+
+
+
+
+                            <img ng-src="data:image/png;base64,{{call.dialer.profile_pic}}" class="md-avatar" alt="" ng-if="call.type == 'missed'" err-src="images/intouch-images/contacts.png">
+                            <div class="md-list-item-text" ng-if="call.type == 'missed'">
+                                <p style="color:white;">{{call.dialer.fname}} {{call.dialer.lname}}</p>
+                                <p style="font-size:0.7em;color:lightgrey;">{{call.dateTime | date:'mediumTime' }}<span style="float: right;
+    font-size: 1.4em;
+    margin-right: -10px;
+    margin-top: -15px;
+    color: whitesmoke;" ng-if="call.count > 1">{{call.count}}</span></p>
+                            </div>
+
+                            <md-icon md-svg-icon="icons/ic_call_missed_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="call.type == 'missed'"></md-icon>
+                        </md-list-item>
+                    </md-list>
+                </div>
+
+
+
+                <div class="callerView" ng-if="itw.calling">
+
+                    <div class="spinner" style="background-color:{{$root.shellConfig.themeconfiguration.accentpalette}};">
+                    </div>
+                    <div class="spinner1" style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};animation-delay:0.5s;">
+                    </div>
+
+                    <img id="widgetuserProfilePic" ng-src="data:image/png;base64,{{profile_pic}}" style="border-radius:40px;  width: 40px;
+  height: 40px;z-index: 10;
+    position: relative;margin:12px 16px ;"></img>
+                    <div class="callerText" ng-if="itw.calling" layout="column" layout-align="center center">
+                        <p class="callText">{{reciever_name}}</p>
+                        <p style="color: {{$root.shellConfig.themeconfiguration.accentpalette}}; font-size:1em;margin:0px;">{{dialingNumber}}</p>
+                    </div>
+                </div>
+
+
+                <div style="font-size:24px; margin-top:10px;bottom: 40px;
+    position: absolute; padding:10px;" layout="column" layout-align="center center">
+                    <div class="row" layout="row" style="border-bottom:1px solid #b6b6b6;width:100%" layout-padding>
+                        <input style="border:none;width:80%;text-align:right;font-size:24px;background-color: rgba(245, 245, 220, 0);" ng-model="dialingNumber" placeholder="Dial up"></input>
+                        <md-button ng-click="backspace()" style="line-height:8px;">
+                            <md-icon md-svg-icon="icons/ic_backspace_24px.svg"></md-icon>
+                    </div>
+                    <div class="row" layout-padding>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/1.png)" ng-click="changeNumber('1')">&nbsp;</md-button>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/2.png)" ng-click="changeNumber('2')">&nbsp;</md-button>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/3.png)" ng-click="changeNumber('3')">&nbsp;</md-button>
+                    </div>
+                    <div class="row" layout-padding>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/4.png)" ng-click="changeNumber('4')">&nbsp;</md-button>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/5.png)" ng-click="changeNumber('5')">&nbsp;</md-button>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/6.png)" ng-click="changeNumber('6')">&nbsp;</md-button>
+                    </div>
+                    <div class="row" layout-padding>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/7.png)" ng-click="changeNumber('7')">&nbsp;</md-button>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/8.png)" ng-click="changeNumber('8')">&nbsp;</md-button>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/9.png)" ng-click="changeNumber('9')">&nbsp;</md-button>
+                    </div>
+                    <div class="row" layout-padding>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/star.png)" ng-click="changeNumber('*')">&nbsp;</md-button>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/0.png)" ng-click="changeNumber('0')">&nbsp;</md-button>
+                        <md-button class="dialButtons" style="background:url(images/connect/Dialpad/hash.png)" ng-click="changeNumber('#')">&nbsp;</md-button>
+                    </div>
+                </div>
+                <div layout="row" layout-align="center center" style="bottom: 0px;
+    position: absolute;
+    width: 100%;
+    background-color: #F2EBEB;">
+                    <md-button id="decline" class="md-primary" aria-label="" ng-click="itwf.call()" style="line-height:100% !important; width:150px;">
+                        <md-icon md-svg-icon="{{itw.clickIcon}}" style="color:{{color}};"></md-icon>
+                    </md-button>
+                </div>
+
+
+            </md-content>
+        </md-tab>
+        <!--end of tab two-->
+
+        <!--start of tab three + conversations-->
+        <md-tab>
+            <md-tab-label>
+                <md-icon md-svg-icon="icons/ic_chat_24px.svg" style="color:whitesmoke;" class="accoridanIcon" alt="All Apps"></md-icon>
+            </md-tab-label>
+            <md-content style="height: calc(100vh - 50px);overflow:hidden;">
+                <p style="font-size:15px;color:darkgrey;margin:5px" ng-if="!itw.conversationOpen">Conversations</p>
+                <div ng-if="!itw.conversationOpen" class="openedConvoList" layout="row" layout-align="center start" layout-wrap layout-padding>
+
+                    <md-button ng-repeat="person in users" ng-click="widgetmessage(person.username)" style="width:90px;padding:10px;margin:5px;" layout="column" layout-align="center center">
+                        <img ng-src="data:image/png;base64,{{person.profile_pic}}" err-src="images/intouch-images/contacts.png" class="md-avatar" alt="" style="width:60px; height:60px; border-radius:100%;border: 1px lightgrey solid;    box-shadow: 0px 0px 10px 0px #8E8B8C;">
+                        <div ng-if="person.count>0" style="    margin: 0px;
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    background-color:{{$root.shellConfig.themeconfiguration.accentpalette}};
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;">
+                            <p class="md-secondary" style="color: whitesmoke;
+    margin: 0px;
+    line-height: 20px;
+    font-size: 12px;">{{person.count}}</p>
+                        </div>
+                        <p style="color:#727272;font-size:10px;line-height:12px;;margin:0px;    white-space: pre-line;">{{person.fname}}
+                        </p>
+
+                    </md-button>
+                </div>
+
+                <div ng-if="itw.conversationOpen" class="openedConversation" style="width:100%;">
+                    <div style=' height:48px; background-color:{{$root.shellConfig.themeconfiguration.accentpalette}};
+  width: 100%; color:white' layout="column">
+                        <!--APP DETAILS START-->
+                        <div layout="row" flex layout-align="space-between center">
+                            <!-- user name + controls-->
+                            <div layout-padding layout="row" layout-align="start center" id="conversation-title">
+                                <md-button style="border-radius:100%;" ng-click="goBack();">
+                                    <md-icon md-svg-icon="icons/ic_arrow_back_24px.svg" style="color:whitesmoke;margin:0px;" class="accoridanIcon" alt="All Apps"></md-icon>
+                                </md-button>
+
+                                <img src="data:image/png;base64,{{Conversation.userDetails.profile_pic}}" err-src="images/appIcons/contacts.png" width='35px' height='35px' style='border-radius:100px;'>
+                                <label style='font-size:15px;font-weight:200;margin:5px;' ng-click="showProfile($event,Conversation.userDetails);">{{Conversation.userDetails.fname}} {{Conversation.userDetails.lname || selectedgroup.convo_name}} </label>
+                            </div>
+                        </div>
+                        <!--ACTION BUTTONS END-->
+                    </div>
+                    <md-progress-linear ng-show="messageProgress" md-mode="indeterminate" class="md-accent"></md-progress-linear>
+
+                    <div class="container" style="width: 100%;background-color:white;height:calc(100vh - 96px); ">
+                        <perfect-scrollbar class="intouch-chat-container-scroller" wheel-propagation="false" wheel-speed="2" layout="column" layout-align="start center">
+                            <div class="chatbox" style="height:calc(100% - 50px);overflow:hidden;min-width:300px;width:100%;" flex layout="row" layout-align="center start">
+
+                                <div id='chatContentLarge' layout="column" style="max-width:800px;height:100%;" flex>
+                                    <!--THIS IS THE CHAT CONTENT HOLDER-->
+                                    <div ng-repeat="data in Conversation.messages track by $index">
+                                        <div ng-if="data.from == mySelf" layout="row" layout-align="end center">
+                                            <div class="message-box-me" layout="column" layout-align="center end">
+                                                <p style="word-wrap:break-word;margin:2px;width: 100%;">{{data.message}}</p>
+                                                <p style="margin:0px;font-size:11px;color: rgba(0, 0, 0, 0.5);">{{data.time | date:'shortTime' }} <span><md-icon md-svg-icon="icons/ic_done_24px.svg" class="delivery-icon" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}}"></md-icon></span></p>
+                                            </div>
+                                            <img src="data:image/png;base64,{{$root.profilePicture}}" class="message-box-logo" err-src="images/intouch-images/contacts.png" hide-sm hide-md>
+                                        </div>
+
+
+                                        <div ng-if="data.from == Conversation.userDetails.username" style='float:left;width:100%;' layout="row" layout-align="start center">
+                                            <img src="data:image/png;base64,{{Conversation.userDetails.profile_pic}}" class="message-box-logo" err-src="images/intouch-images/contacts.png" hide-sm hide-md>
+                                            <div class="message-box-others" layout="column" layout-align="center start" style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}}">
+                                                <p style="word-wrap:break-word;margin:2px; width: 100%; ">{{ data.message }}</p>
+                                                <p style="margin:0px;font-size:11px;color: rgba(255, 255, 255, 0.5);"><span><md-icon md-svg-icon="icons/ic_done_24px.svg" class="delivery-icon" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}}"></md-icon></span>{{data.time | date:'shortTime' }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </perfect-scrollbar>
+                        <div layout="row" style="height:50px;background-color: #F1F1F1;">
+
+                            <md-input-container style="z-index:10" layout-margin flex="80">
+                                <input type="text" ng-model="$root.searchText" ng-keypress="sendMessage($event,$root.searchText); empty($root.searchText);" />
+                            </md-input-container>
+                            <md-button flex="10" class="md-primary">
+                                <md-icon md-svg-icon="icons/ic_send_24px.svg"></md-icon>
+                            </md-button>
+                        </div>
+
+                    </div>
+
+                    <!--CHAT INPUT-->
+                </div>
+                </div>
+            </md-content>
+        </md-tab>
+        <!--end of tab three-->
+
+        <!--start of tab four + contacts-->
+        <md-tab>
+            <md-tab-label>
+                <md-icon md-svg-icon="icons/ic_contacts_24px.svg" style="color:whitesmoke;" class="accoridanIcon" alt="All Apps"></md-icon>
+            </md-tab-label>
+            <md-content>
+                <div layout="column" layoout="center start" ng-if="itw.showContact" style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};height:calc(100vh - 50px);" id="contactCard">
+                    <md-button style="border-radius:100%;position:fixed;" ng-click="showContactList();">
+                        <md-icon md-svg-icon="icons/ic_arrow_back_24px.svg" style="color:whitesmoke;margin:0px;" class="accoridanIcon" alt="go back"></md-icon>
+                    </md-button>
+                    <div layout="row" layout-align="center center" style="height: 30vh;
+    background-image: url({{selectedContact.profile_pic}});
+    background-size: cover;">
+                        <div layout="row" layout-align="start end" style="height: 30vh;
+    background-color:rgba(0, 0, 0, 0.44);width:100%;padding:10px;">
+                            <img ng-src="data:image/png;base64{{selectedContact.profile_pic}}" class="md-avatar" alt="" height="50px" width="50px">
+                            <p style="    color: whitesmoke;
+    font-size: larger;
+    margin: 10px;
+    font-weight: 100;">{{selectedContact.fname}} {{selectedContact.lname}}</p>
+                        </div>
+                    </div>
+                    <div style="background-color:rgba(30,30,30,0.3);color:whitesmoke;height:100%;font-weight:100;">
+                        <div layout="row" layout-align="space-around center" layout-padding style="background-color: rgba(255, 255, 255, 0.1);">
+                            <md-button>
+                                <md-icon md-svg-icon="icons/ic_star_24px.svg" style="color:gold;margin:5px;" class="accoridanIcon" alt="go back"></md-icon>
+                            </md-button>
+                            <md-button ng-click="widgetmessage(selectedContact.username);">
+                                <md-icon md-svg-icon="icons/ic_message_24px.svg" style="color:lightgrey;margin:5px;" class="accoridanIcon" alt="go back"></md-icon>
+                            </md-button>
+                            <md-button ng-click="widgetcall(selectedContact);">
+                                <md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:lightgrey;margin:5px;" class="accoridanIcon" alt="go back"></md-icon>
+                            </md-button>
+                        </div>
+                        <md-list class="md-primary">
+                            <md-list-item>
+                                <md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:lightgrey;margin:15px;" class="accoridanIcon" alt="go back"></md-icon>
+                                <p> {{selectedContact.mobile}}</p>
+                            </md-list-item>
+                            <md-list-item>
+                                <md-icon md-svg-icon="icons/ic_email_24px.svg" style="color:lightgrey;margin:15px;" class="accoridanIcon" alt="go back"></md-icon>
+                                <p> {{selectedContact.email}}</p>
+                            </md-list-item>
+                            <md-list-item>
+                                <md-icon md-svg-icon="icons/ic_home_24px.svg" style="color:lightgrey;margin:15px;" class="accoridanIcon" alt="go back"></md-icon>
+                                <p> {{selectedContact.location}}</p>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </div>
+                <div ng-if="!itw.showContact" id="contactList">
+                    <p style="font-size:15px;color:darkgrey;margin:5px" ng-if="!itw.conversationOpen">Contacts</p>
+                    <div class="row" style="height:50px;z-index:4">
+                        <md-input-container style="padding-bottom:0px;">
+                            <label>
+                                <md-icon md-svg-src="bower_components/material-design-icons/action/svg/production/ic_search_24px.svg" style="fill: #b0b0b0;"></md-icon>&nbsp;&nbsp;Search</label>
+                            <input id="searchinput" ng-model="filter">
+                        </md-input-container>
+                    </div>
+                    <div layout-padding>
+
+                        <md-list>
+                            <subheader class="contact-list-sub-header">online users</subheader>
+                            <md-list-item ng-mouseleave="show = false" ng-mouseenter="show=true" class="md-3-line" ng-repeat="person in users | filter:$root.filterNumber| orderBy: 'name'" ng-if="person.status == 'online'" layout="row" layout-align="start center">
+                                <img ng-src="data:image/png;base64,{{person.profile_pic}}" class="md-avatar" alt="" ng-click="showProfile($event,person);" style="margin-left:10px;box-shadow:{{$root.shellConfig.themeconfiguration.accentpalette}}  0px 0px 20px 1px;">
+                                <div flex ng-if="!show" style="margin-top:16px;" layout="row" layout-align="space-between center">
+                                    <p style="color:#727272;font-size:small;">{{person.fname}} {{person.lname}}</p>
+
+                                    <p ng-if="person.count>0" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};">{{person.count}}</p>
+
+                                </div>
+                                <div ng-if="show" style="margin-top:16px;" flex layout="row" layout-align="space-around center">
+                                    <md-button id="contactListButtons" ng-click="widgetcall(person.username)" aria-label="call ">
+                                        <md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.primarypalette}};"></md-icon>
+                                    </md-button>
+                                    <md-button id="contactListButtons" ng-click="widgetvideocall(person.username)" aria-label="videocall">
+                                        <md-icon md-svg-icon="icons/ic_videocam_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.primarypalette}};"></md-icon>
+                                    </md-button>
+
+                                    <md-button id="contactListButtons" ng-click="widgetmessage(person.username)" aria-label="message">
+                                        <md-icon md-svg-icon="icons/ic_message_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.primarypalette}};"></md-icon>
+                                    </md-button>
+                                </div>
+                            </md-list-item>
+                            <subheader class="contact-list-sub-header">offline users</subheader>
+                            <md-list-item ng-mouseleave="show = false" ng-mouseenter="show=true" class="md-3-line" ng-repeat="person in users | filter:$root.filterNumber| orderBy: 'name'" ng-if="person.status == 'offline'" layout="row" layout-align="start center">
+                                <img ng-src="data:image/png;base64,{{person.profile_pic}}" class="md-avatar" alt="" ng-click="showProfile($event,person);" style="margin-left:10px;">
+
+                                <div flex ng-if="!show" style="margin-top:16px;" layout="row" layout-align="space-between center">
+                                    <p flex="90" style="color:#727272;font-size:small;">{{person.fname}} {{person.lname}}</p>
+                                    <p ng-if="person.count>0" style="color:rgb(25, 118, 210);margin:0px; ">{{person.count}}</p>
+
+                                </div>
+
+                                <div ng-if="show" flex style="margin-top:16px;" layout="row" layout-align="space-around center">
+                                    <md-button id="contactListButtons" ng-click="showOfflineAlert(person.username,$event)" aria-label="call">
+                                        <md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+                                    </md-button>
+                                    <md-button id="contactListButtons" ng-click="showOfflineAlert(person.username,$event)" aria-label="videocall">
+                                        <md-icon md-svg-icon="icons/ic_videocam_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+                                    </md-button>
+                                    <md-button id="contactListButtons" ng-click="widgetmessage(person.username)" aria-label="message">
+
+                                        <md-icon md-svg-icon="icons/ic_message_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};"></md-icon>
+                                    </md-button>
+
+                                </div>
+                            </md-list-item>
+
+                        </md-list>
+                    </div>
+                </div>
+            </md-content>
+        </md-tab>
+        <!--end of tab four-->
+    </md-tabs>
+</md-content>
+<!-- audio resources-->
+<audio id="dialerTune">
+    <source src="audio/ring1.ogg" type="audio/ogg">
+</audio>
+<audio id="notificationTune">
+    <source src="audio/notification1.ogg" type="audio/ogg">
+</audio>

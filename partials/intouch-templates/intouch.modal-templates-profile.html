@@ -1,0 +1,40 @@
+<md-dialog style="width:40vw;height:70vh;">
+    <md-content style="height:inherit; overflow:hidden;" layout="row">
+        <!--image + user's name and cover-->
+        <div flex="60" layout="column" layout-align="center center" width="100%" height="100%">
+            <img src="data:image/png;base64,{{user.profile_pic}}"></img>
+        </div>
+        <!-- user's details-->
+        <div flex="40" style="background-color: {{$root.shellConfig.themeconfiguration.primarypalette}}">
+            <md-list style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};">
+                <md-list-item class="md-2-line">
+                    <ng-md-icon style="margin: 10px 0px 10px 10px;fill: #FFFFFF;" icon="person"></ng-md-icon>
+                    <div style="margin-left: 26px;border-bottom: #B6B6B6 1px solid;color: #727272;" class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+                        <h3 style="color: #FFFFFF">{{user.fname}} {{user.lname}} </h3>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <ng-md-icon style="margin: 10px 0px 10px 10px;fill: #FFFFFF;" icon="home"></ng-md-icon>
+                    <div style="margin-left: 26px;border-bottom: #B6B6B6 1px solid;color: #727272;" class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+                        <h3 style="color: #FFFFFF">{{user.location}}</h3>
+                        <p style="color:#B6B6B6">Hometown</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <ng-md-icon style="margin: 10px 0px 10px 10px;fill: #FFFFFF;" icon="email"></ng-md-icon>
+                    <div style="margin-left: 26px;border-bottom: #B6B6B6 1px solid;color: #727272;" class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+                        <h3 style="color: #FFFFFF">{{user.email}}</h3>
+                        <p style="color:#B6B6B6"> e-mail </p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <ng-md-icon style="margin: 10px 0px 10px 10px;fill: #FFFFFF;" icon="phone"></ng-md-icon>
+                    <div style="margin-left: 26px;border-bottom: #B6B6B6 1px solid;color: #727272;" class="md-list-item-text" ng-class="{'md-offset': $index != 0 }">
+                        <h3 style="color: #FFFFFF"> {{user.mobile}}</h3>
+                        <p style="color:#B6B6B6">mobile</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </div>
+    </md-content>
+</md-dialog>

@@ -1,0 +1,44 @@
+<perfect-scrollbar class="intouch-chat-container-scroller" wheel-propagation="false" wheel-speed="2" layout="column">
+    <md-list>
+        <md-list-item class="md-3-line" ng-repeat="call in callLog| orderBy: '-dateTime' | filter:filter.name" style="background-color: rgba(0,0,0,0);">
+            <img ng-src="data:image/png;base64, {{call.reciever.profile_pic}} " class="md-avatar intouch-list-item-logo" alt=" " ng-if="call.type == 'dialed'" err-src="images/intouch-images/contacts.png">
+            <div class="md-list-item-text " ng-if="call.type == 'dialed'">
+                <p style="color:white;font-weight: 300;
+    font-size: 15px; ">{{call.reciever.fname}} {{call.reciever.lname}}</p>
+                <p style="font-size:0.7em;color:lightgrey; ">{{call.dateTime | date:'mediumTime' }}<span style="float: right; font-size: 1.4em; margin-right: -10px; margin-top: -15px; color: whitesmoke; " ng-if="call.count> 1">{{call.count}}</span>
+                </p>
+            </div>
+            <md-icon md-svg-icon="icons/ic_call_made_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="call.type == 'dialed'"></md-icon>
+
+            <img ng-src="data:image/png;base64,{{call.dialer.profile_pic}}" class="md-avatar intouch-list-item-logo" alt="" ng-if="call.type == 'recieved'" err-src="images/intouch-images/contacts.png">
+            <div class="md-list-item-text" ng-if="call.type == 'recieved'">
+                <p style="color:white; font-weight: 300;
+    font-size: 15px;">{{call.dialer.fname}} {{call.dialer.lname}}</p>
+                <p style="font-size:0.7em;color:lightgrey;">{{call.dateTime | date:'mediumTime' }}<span style="float: right;
+    font-size: 1.4em;
+    margin-right: -10px;
+    margin-top: -15px;
+    color: whitesmoke;" ng-if="call.count > 1">{{call.count}}</span></p>
+            </div>
+            <md-icon md-svg-icon="icons/ic_call_received_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="call.type == 'recieved'"></md-icon>
+
+            <img ng-src="data:image/png;base64,{{call.dialer.profile_pic}}" class="md-avatar intouch-list-item-logo" alt="" ng-if="call.type == 'missed'" err-src="images/intouch-images/contacts.png">
+            <div class="md-list-item-text" ng-if="call.type == 'missed'">
+                <p style="color:white; font-weight: 300;
+    font-size: 15px;">{{call.dialer.fname}} {{call.dialer.lname}}</p>
+                <p style="font-size:0.7em;color:lightgrey;">{{call.dateTime | date:'mediumTime' }}<span style="float: right;
+    font-size: 1.4em;
+    margin-right: -10px;
+    margin-top: -15px;
+    color: whitesmoke;" ng-if="call.count > 1">{{call.count}}</span></p>
+            </div>
+            <md-icon md-svg-icon="icons/ic_call_missed_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};" ng-if="call.type == 'missed'"></md-icon>
+        </md-list-item>
+    </md-list>
+</perfect-scrollbar>
+<div class="intouch-tab-title" layout="row" layout-align="space-between center">
+    <p>Call log</p>
+    <md-button class="md-fab md-mini" ui-sref="dialPad">
+        <md-icon md-svg-icon="icons/ic_dialpad_24px.svg"></md-icon>
+    </md-button>
+</div>

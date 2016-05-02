@@ -1,0 +1,19 @@
+<perfect-scrollbar class="intouch-chat-container-scroller" wheel-propagation="false" wheel-speed="2" layout="column">
+<md-list>
+<md-list-item class="md-2-line intouch-list-item" ng-repeat="channel in channels | unique:'channel.groupid' " ng-click="selectChannel(channel.groupid)" ng-if="channel.data.status == 'active'">
+<img ng-src="{{channel.img}}" err-src="images/appIcons/bubbles.png" class="md-avatar intouch-list-item-icon" alt="">
+<div class="md-list-item-text">
+	<h3 style="color:white;font-weight: 400;
+	font-size: 15px;">{{channel.topic}}</h3>
+	<p ng-if="channel.count>0" class="md-secondary" style="color:rgb(25, 118, 210); font-weight:bolder;">{{channel.count}}</p>
+	<!-- <p style="color: rgba(255, 255, 255, 0.47);font-weight:200;font-size:13px;">{{channel.members[1].name}}...</p> -->
+</div>
+</md-list-item>
+</md-list>
+</perfect-scrollbar>
+<div class="intouch-tab-title" layout="row" layout-align="space-between center">
+	<p>Channels</p>
+	<md-button class="md-fab md-mini" ng-click="showCreateNewChannelDialog($event)">
+	<md-icon md-svg-icon="icons/ic_add_24px.svg"></md-icon>
+</md-button>
+</div>

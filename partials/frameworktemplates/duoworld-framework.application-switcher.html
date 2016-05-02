@@ -1,0 +1,17 @@
+<md-dialog style="background-color: rgba(0, 255, 255, 0); box-shadow: none;min-width:80vw;min-height:50vh;" layout="row" layout-align="center center">
+
+    <div ng-hide="$root.runningApps.length == 0" layout="row" layout-align="center center" style="width:100%;">
+
+        <ng-coverflow zoom="75" rotation="30" brightness=".35" offset="80" wrap-around="false" items="$root.runningApps" selected-index="{{selectedIndex}}" item-click="switchApp(item)">
+        </ng-coverflow>
+
+    </div>
+    <p ng-if="$root.runningApps.length == 0" style="color: darkgrey;
+    font-size: 20px;
+    font-weight: 300;">No running applications </p>
+
+
+</md-dialog>
+<md-button ng-click="close();" class="app-switcher-close">
+    <md-icon md-svg-icon="icons/ic_close_24px.svg" style="color:darkgrey;"></md-icon>
+</md-button>

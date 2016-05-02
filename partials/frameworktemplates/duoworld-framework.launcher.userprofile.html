@@ -1,0 +1,638 @@
+<style>
+    .md-child-application-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ececec;
+    }
+    
+    .md-child-application-header-control-bar {
+        position: relative;
+        z-index: 1;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 48px;
+        padding: 0px 8px 0px 8px;
+        box-sizing: border-box;
+    }
+    
+    .md-framework-pannel-featureHolder-menu-view {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding-left: 8px;
+        padding-right: 8px;
+        opacity: 1;
+    }
+    
+    .md-framework-pannel-featureHolder-search-view {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding-left: 8px;
+        padding-right: 8px;
+        background: rgba(10, 10, 10, 0.05);
+    }
+    
+    .cad24 {
+        color: #999999;
+    }
+
+    .md-child-application-header-control-bar-left-section img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+    }
+    
+    .md-child-application-header-control-bar-left-section span {
+        font-size: 18px;
+        color: #999999;
+    }
+    
+    #idRenderDiv {
+        height: calc(100% - 10px) !important;
+        width: 100%;
+        overflow-y: scroll;
+        box-styling: border-box;
+    }
+    /*---------------------------Dilshan Custom Styling-------------------------------*/
+    
+    .md-button {
+        margin: 0px !important;
+        min-width: 0 !important;
+    }
+    
+    md-select {
+        padding-bottom: 26px;
+    }
+    
+    md-header {
+        z-index: 3;
+        position: fixed;
+        left: 0;
+        right: 0;
+    }
+    
+    .md-sticky-no-effect.md-subheader.md-default-theme {
+        background: #dcedc8;
+        margin-top: -24px;
+        width: 125% !important;
+        margin-left: -24px;
+    }
+    
+    .md-sticky-clone[sticky-state="active"] {
+        margin-top: 0px !important;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    hr {
+        border: 1px solid #B6B6B6;
+    }
+    
+    md-input-container.md-default-theme .md-input {
+        border-bottom: 1px solid #B6B6B6;
+    }
+    
+    md-select.md-default-theme .md-select-label.md-placeholder {
+        border-bottom: 1px solid #B6B6B6;
+    }
+    
+    md-input-container.md-default-theme label {
+        color: rgba(0, 0, 0, 0.54);
+    }
+    
+    .labelCus {
+        color: rgba(0, 0, 0, 0.54);
+    }
+    
+    .md-whiteframe-z1 {
+        background: #fff;
+        animation: fromBottom 1.3s 1;
+        -webkit-animation: fromBottom 1.3s 1;
+    }
+    
+    .dialButtons {
+        height: 45px;
+        width: 70px;
+        margin: 0px !important;
+        min-width: 0 !important;
+    }
+    
+    @media screen and (max-width: 960px) {
+        .md-toolbar-tools {
+            width: 100%;
+        }
+        .md-whiteframe-z1 {
+            width: 100%;
+        }
+    }
+    
+    @media screen and (max-width: 599px) {
+        .blankspace {
+            display: none;
+        }
+    }
+    
+    @media screen and(min-width:768px) {
+        .fabBtn {
+            margin: 35px 83%;
+        }
+    }
+    /*table*/
+    
+    a {
+        text-decoration: none;
+    }
+    
+    i {
+        vertical-align: middle;
+        font-size: 24px;
+    }
+    
+    .md-breadcrumb {
+        padding-left: 88px;
+    }
+    
+    .JCLRgrip:first-child {
+        left: 105px!important;
+        display: none!important;
+    }
+    
+    .JColResizer th:first-child {
+        width: 105px!important;
+    }
+    
+    .md-table {
+        min-width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .md-table tbody tr:hover,
+    .md-table tbody tr:focus {
+        cursor: pointer;
+        background-color: rgba(63, 81, 181, 0.2);
+    }
+    
+    .md-table-header {
+        border-bottom: 1px solid rgb(230, 230, 230);
+        color: rgb(130, 130, 130);
+        text-align: left;
+        font-size: 0.75em;
+        font-weight: 700;
+        padding: 16px 16px 16px 0;
+    }
+    
+    .md-table-header a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .md-table-content {
+        white-space: nowrap;
+        font-size: 0.8em;
+        padding: 16px 16px 16px 0;
+        height: 72px;
+    }
+    
+    .md-table-td-more {
+        max-width: 72px;
+        width: 72px;
+        padding: 16px;
+    }
+    
+    .md-table-thumbs {
+        max-width: 104px;
+        width: 104px;
+        padding: 16px 32px;
+    }
+    
+    .md-table-thumbs div {
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-size: cover;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, .3);
+        -webkit-box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+    }
+    
+    .md-table-footer {
+        height: 40px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    
+    .md-table-count-info {
+        line-height: 40px;
+        font-size: .75em;
+    }
+    
+    .md-table-footer-item {
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+    }
+    
+    .md-table-active-page {
+        font-weight: 700;
+    }
+    
+    .bold {
+        font-weight: 700;
+    }
+    
+    .grey {
+        color: grey;
+    }
+    
+    .ps-container >.ps-scrollbar-y-rail >.ps-scrollbar-y {
+        width: 3px !important;
+    }
+    
+    .ps-container >.ps-scrollbar-y-rail {
+        width: 3px !important;
+    }
+    
+    .md-card-right {
+        position: relative;
+        margin-right: 12px;
+    }
+    
+    .md-card-right:before {
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 20px;
+        border-top: 5px solid transparent;
+        border-left: 10px solid white;
+        border-bottom: 5px solid transparent;
+        left: 100%;
+    }
+    
+    .md-card-left {
+        position: relative;
+        margin-left: 12px;
+    }
+    
+    .md-card-left:before {
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 20px;
+        border-top: 5px solid transparent;
+        border-left: 10px solid white;
+        border-bottom: 5px solid transparent;
+        right: 100%;
+        transform: rotate(180deg);
+    }
+    
+    md-card md-card-content {
+        padding: 10px;
+    }
+    
+    @keyframes fromBottom {
+        0% {
+            transform: translateY(250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fromTop {
+        0% {
+            transform: translateY(-250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    @-webkit-keyframes fromBottom {
+        0% {
+            transform: translateY(250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    @-webkit-keyframes fromTop {
+        0% {
+            transform: translateY(-250px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    #userProfilePic {
+        -webkit-animation: scaleAnimation 1.5s 1 ease;
+        -moz-animation: scaleAnimation 1.5s 1 ease;
+        -o-animation: scaleAnimation 1.5s 1 ease;
+    }
+    
+    @-webkit-keyframes scaleAnimation {
+        from {
+            -webkit-transform: scale(0.1)
+        }
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+    
+    @-moz-keyframes scaleAnimation {
+        from {
+            -moz-transform: scale(0.1)
+        }
+        to {
+            -moz-transform: scale(1)
+        }
+    }
+    
+    @-o-keyframes scaleAnimation {
+        from {
+            -o-transform: scale(0.1) translate(0px);
+        }
+        to {
+            -o-transform: scale(1)
+        }
+    }
+    
+    @media only screen and (max-device-width: 480px) {
+        md-toolbar {
+            margin-right: 10% !important;
+            margin-left: 10% !important;
+        }
+    }
+    /*PAGE STRUCTURE FORMAT*/
+    
+    @font-face {
+        font-family: materialFont;
+        src: url(../fonts/Roboto-Light.ttf);
+    }
+    
+    @-moz-document url-prefix() {
+        md-select {
+            margin-top: 14px !important;
+        }
+    }
+    
+    .md-childApp-containerSection {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background: #ececec;
+    }
+    
+    .md-childApp-headerSection {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 48px;
+        padding: 0px 8px 0px 8px;
+        margin: 0;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+    
+    .md-childApp-contentContainerSection {
+        position: relative;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 48px);
+        margin: 0;
+        box-sizing: border-box;
+        overflow: auto;
+    }
+    
+    .dw-profileapp-banner {
+        width: 960px;
+        margin-top: 25px;
+        height: 300px;
+        background-size: cover;
+    }
+    
+    .dw-profileapp-banner img {
+        border-radius: 50%;
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+    
+    .dw-profileapp-banner span {
+        margin-top: 15px;
+        font-size: 25px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 1px 1px 2px rgba(30, 30, 30, 0.8);
+    }
+    
+    .dw-profileapp-info {
+        width: 960px;
+        margin-top: 15px;
+        height: auto;
+        background: white;
+    }
+    
+    .dw-profileapp-info md-content {
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .dw-profileapp-info .md-input[disabled] {
+        color: rgba(0, 0, 0, 0.9);
+        background-image: none !important;
+    }
+
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.1.8/svg-morpheus.js"></script>
+<!-- custom app template -->
+<frameworkapp-container routedappname="'User Profile'" routedappiconuri="profilePicture" accentpalette="$root.shellConfig.themeconfiguration.accentpalette">
+    <div style="width:100%;" layout="column" layout-align="start center">
+        <div style="background-image:url({{$root.banner}});min-height:300px;" class="dw-profileapp-banner md-whiteframe-z3" layout="column" layout-align="center center" ng-mouseenter="changeProfilePicture = false" ng-mouseleave="changeProfilePicture = false">
+            <img ng-src="data:image/png;base64,{{$root.banner}}" style="    border-radius: 0%;
+    position: absolute;
+    z-index: 0;
+    height: 300px;
+    margin-top: -55px;
+    width: 960px;" ng-hide="$root.hideObjectstoreBanner">
+            <img ng-src="data:image/png;base64,{{$root.profilePicture}}" err-src="images/appIcons/contacts.png" width="100" height="100" ng-mouseenter="changeProfilePicture = true" style="z-index:1;">
+            <center style="z-index:2;">
+                <div style="position: relative;
+						height: 100px;
+						width: 100px;
+						background-color: rgba(48, 49, 50, 0.44);
+						margin-top: -100px;
+						border-radius: 100%; cursor:pointer;" ng-show="changeProfilePicture" ng-mouseleave="changeProfilePicture = false">
+                    <input id="selectPicture" type="file" file-model="myFile" style="visibility:hidden;" onchange="angular.element(this).scope().file_changed(this)">
+                    <md-icon ng-click="EditProfpic();" md-svg-icon="icons/ic_edit_24px.svg" class="cad24" alt="edit Profile Pic"></md-icon>
+                </div>
+                <div style="position: relative;
+						height: 100px;
+						width: 100px;
+						margin-top: -100px;
+                            z-index:2;
+						border-radius: 100%;" ng-if="progressCircle" layout="row" layout-sm="column" layout-align="space-around">
+                    <md-progress-circular style="padding-top: 20px !important; z-index:2;" md-mode="indeterminate"></md-progress-circular>
+                </div>
+            </center>
+            <span style="z-index:1;">{{shellUserProfileSection.name}}</span>
+            <div layout="column" layout-align="center end" style="    position: relative;
+    fill: lightgrey;
+    width: 960px;
+    margin: 0px auto;
+    bottom: -55px;
+    background-color: rgba(1, 1, 1, 0.22);cursor:pointer;
+" ng-click="changeBanner($event);">
+                <div layout="row" layout-align="end center">
+                    <md-icon md-svg-icon="icons/ic_edit_24px.svg" class="cad24" alt="edit Banner Pic" style="margin:10px;"></md-icon>
+                    <p style="margin: 10px;color: lightgrey;">
+                        Change Cover Image</p>
+                </div>
+                <md-progress-linear md-mode="indeterminate" class="md-primary" ng-if="bannerProgress"></md-progress-linear>
+            </div>
+
+        </div>
+
+        <div class="dw-profileapp-info md-whiteframe-z3" layout="column" layout-align="start start">
+            <md-content>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="Profile Details">
+                        <md-content layout-padding="">
+                            <div layout="row" layout-align="end center">
+                                <md-button style="font-size: smaller;
+    color: #5F7C8A;" ng-click="userProfileChangePassword($event);">Change Password</md-button>
+                            </div>
+                            <form name="userForm">
+
+                                <div layout="row" layout-sm="column" layout-align="start center" class="userprofile-detail-row">
+                                    <div flex="25" layout="row" layout-align="start center">
+                                        <md-icon md-svg-icon="icons/ic_person_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};margin:5px;"></md-icon>
+                                        <p style="margin: 0px 20px;">Name</p>
+                                    </div>
+                                    <md-input-container flex>
+                                        <input ng-model="shellUserProfileSection.name" ng-disabled="shellUserProfileSection.disabled">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-sm="column" layout-align="start center" class="userprofile-detail-row">
+                                    <div flex="25" layout="row" layout-align="start center">
+                                        <md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};margin:5px;"></md-icon>
+                                        <p style="margin: 0px 20px;">Phone Number</p>
+                                    </div>
+                                    <md-input-container flex>
+                                        <input ng-model="shellUserProfileSection.phone" ng-disabled="shellUserProfileSection.disabled">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-sm="column" layout-align="start center" class="userprofile-detail-row">
+                                    <div flex="25" layout="row" layout-align="start center">
+                                        <md-icon md-svg-icon="icons/ic_mail_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};margin:5px;"></md-icon>
+                                        <p style="margin: 0px 20px;">Email</p>
+                                    </div>
+                                    <md-input-container flex>
+                                        <input ng-model="shellUserProfileSection.email" ng-disabled="shellUserProfileSection.disabled">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-sm="column" layout-align="start center" class="userprofile-detail-row">
+                                    <div flex="25" layout="row" layout-align="start center">
+                                        <md-icon md-svg-icon="icons/ic_work_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};margin:5px;"></md-icon>
+                                        <p style="margin: 0px 20px;">Company</p>
+                                    </div>
+                                    <md-input-container flex>
+                                        <input ng-model="shellUserProfileSection.company" ng-disabled="shellUserProfileSection.disabled">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-sm="column" layout-align="start center" class="userprofile-detail-row">
+                                    <div flex="25" layout="row" layout-align="start center">
+                                        <md-icon md-svg-icon="icons/ic_home_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};margin:5px;"></md-icon>
+                                        <p style="margin: 0px 20px;">Country</p>
+                                    </div>
+                                    <md-input-container flex>
+                                        <input ng-model="shellUserProfileSection.country" ng-disabled="shellUserProfileSection.disabled">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-sm="column" layout-align="start center" class="userprofile-detail-row">
+                                    <div flex="25" layout="row" layout-align="start center">
+                                        <md-icon md-svg-icon="icons/ic_local_post_office_24px.svg" style="color:{{$root.shellConfig.themeconfiguration.accentpalette}};margin:5px;"></md-icon>
+                                        <p style="margin: 0px 20px;">Zip Code</p>
+                                    </div>
+                                    <md-input-container flex>
+                                        <input ng-model="shellUserProfileSection.zipcode" ng-disabled="shellUserProfileSection.disabled">
+                                    </md-input-container>
+                                </div>
+                            </form>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Payment details" ng-disabled="paymentDetailsLocked">
+                        <md-content class="md-padding">
+
+                            <md-whiteframe class="md-whiteframe-z2" layout layout-align="center center" style="height:100px;margin:10px;">
+                                <div layout="row" layout-align="start center" flex>
+                                    <div flex="40" layout="row">
+                                        <img src="creditCardIcons/Credit.png" style="padding:15px;">
+                                        <p>Account Id : {{paymentAccountDetails.AccountId}}
+                                            <br> {{paymentAccountDetails.PhoneNumber}}</p>
+                                    </div>
+                                    <div flex layout="column">
+                                        <p>DeliveyAddress :</p>
+                                        <p style="color: darkgrey;font-size: small;margin:0px;"> {{paymentAccountDetails.DeliveyAddress}}</p>
+                                    </div>
+                                    <div flex layout="column">
+                                        <p>BillingAddress :</p>
+                                        <p style="color: darkgrey;font-size: small;margin:0px;"> {{paymentAccountDetails.BillingAddress}}</p>
+                                    </div>
+                                </div>
+                            </md-whiteframe>
+                            <md-divider></md-divider>
+
+                            <md-subheader class="md-primary">Your Cards</md-subheader>
+                            <md-whiteframe class="md-whiteframe-z2" layout layout-align="center center" style="height:100px;margin:10px;background-color:#fafafa;" ng-repeat="card in paymentAccountDetails.AccountCards" ng-if="card.Active == true">
+                                <div layout="row" layout-align="start center" flex>
+                                    <div flex="40" layout="row" layout-align="start center">
+                                        <img src="creditCardIcons/{{card.CardType}}.png" style="padding:15px;">
+                                        <md-icon md-svg-icon="icons/ic_done_24px.svg" style="color:green;margin: 10px 15px 10px 0px;" ng-if="card.verified == true"></md-icon>
+                                        <md-icon md-svg-icon="icons/ic_clear_24px.svg" style="color:red;margin: 10px 15px 10px 0px;" ng-if="card.verified == false"></md-icon>
+                                        <p>{{card.Name}}
+                                            <br><span style="color: darkgrey;font-size: small;">{{card.CardNo}}</span> </p>
+                                    </div>
+                                    <div flex layout="column">
+                                        <p>DeliveyAddress : </p>
+                                        <p style="color: darkgrey;font-size: small;margin:0px;">{{card.DeliveyAddress}}</p>
+                                    </div>
+                                    <div flex layout="column">
+                                        <p>BillingAddress : </p>
+                                        <p style="color: darkgrey;font-size: small;margin:0px;">{{card.BillingAddress}}</p>
+                                    </div>
+                                </div>
+                            </md-whiteframe>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+        </div>
+        <md-button class="md-fab dw-child-app-saveButton" aria-label="Eat cake" style="position:fixed;
+  top:270px;
+  right:calc(50% - 560px);
+    line-height: 6px;
+    z-index:0;" ng-click="shellUserProfileSectionEdit();">
+            <md-icon md-svg-icon="icons/ic_edit_24px.svg" class="cad24" alt="edit" ng-if="selectedIcon == 'mode_edit'"></md-icon>
+            <md-icon md-svg-icon="icons/ic_save_24px.svg" class="cad24" alt="save" ng-if="selectedIcon == 'save'"></md-icon>
+        </md-button>
+    </div>
+</frameworkapp-container>

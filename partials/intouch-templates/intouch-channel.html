@@ -1,0 +1,141 @@
+<div layout="row" layout-align="start start" style="height:100%;">
+    <div flex style="height:100%;">
+        <div style=' height:48px;
+        width: 100%; color:darkgrey' layout="column">
+        <!--APP DETAILS START-->
+        <div layout="row" flex layout-align="space-between center" style="box-shadow:0px 3px 5px 0px rgba(0,0,0,0.25);">
+            <!-- user name + controls-->
+
+            <div layout-padding layout="row" layout-align="start center" id="conversation-title" ng-click="toggleChatSettings();">
+                <img src="images/appIcons/bubbles.png" style="height:40px; width:40px;border-radius:100%; padding:5px;" err-src="images/appIcons/bubbles.png">
+                <label style='font-size: 17px;
+                font-weight: 400;'>{{Channel.topic}}</label>
+            </div>
+
+            <div layout="row" layout-align="end center" layout-padding>
+                    <!--
+            <md-button ng-click="call(selectedUser.username);" aria-label="call" class="md-icon-button">
+    <md-icon md-svg-icon="icons/ic_call_24px.svg"></md-icon>
+</md-button>
+<md-button ng-click="videocall(selectedUser.username);" aria-label="videocall" class="md-icon-button">
+    <md-icon md-svg-icon="icons/ic_videocam_24px.svg"></md-icon>
+</md-button>
+-->
+                    <!--
+                   <md-button ng-click="showAllUsers($event,selectedUser);" aria-label="add" class="md-icon-button">
+    <md-icon md-svg-icon="icons/ic_group_add_24px.svg"></md-icon>
+</md-button>
+-->
+</div>
+
+</div>
+</div>
+<md-progress-linear ng-show="messageProgress" md-mode="indeterminate" class="md-accent"></md-progress-linear>
+
+<div class="container" style="width: 100%;background-color:white;height:calc(100% - 48px); ">
+    <perfect-scrollbar class="intouch-chat-container-scroller" wheel-propagation="false" wheel-speed="2" layout="column" layout-align="start center">
+    <div class="chatbox" style="height:calc(100% - 50px);overflow:hidden;min-width:73vw;width:100%;" flex layout="row" layout-align="center start">
+        <div id='chatContentLarge' layout="column" style="max-width:100%; height:100%;" flex>
+            <!--THIS IS THE CHAT CONTENT HOLDER-->
+            <div ng-repeat="data in Channel.messages | unique:'data.groupid' ">
+               <!--  <div ng-if="data.type !== 'notification' && data.from == mySelf" layout-margin layout="row" layout-align="end center">
+                    <div class="message-box-me" layout="column" layout-align="center end">
+                        <p style="word-wrap:break-word;margin:5px;width: 100%;">{{data.message}}</p>
+                        <p style="margin:2px;font-size:11px;color: rgba(0, 0, 0, 0.5);">{{data.time | date:'shortTime' }}</p>
+                    </div>
+                    <img src="data:image/png;base64,{{$root.profilePicture}}" class="message-box-logo" err-src="images/intouch-images/contacts.png" hide-sm hide-md>
+                </div> -->
+
+
+              <!--   <div ng-if="data.type !== 'notification' && data.from !== mySelf" style='float:left;width:100%;' layout-margin layout="row" layout-align="start center">
+                    <img src="data:image/png;base64,{{Channel.profile_pic}}" class="message-box-logo" err-src="images/intouch-images/contacts.png" hide-sm hide-md>
+                    <div class="message-box-others" layout="column" layout-align="center start" style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}}">
+                        <p style="word-wrap:break-word;margin:5px; width: 100%; ">{{ data.message }}</p>
+                        <p style="margin:2px;font-size:11px;color: rgba(255, 255, 255, 0.5);">{{data.time | date:'shortTime' }}</p>
+                    </div>
+                </div> -->
+
+                <md-list-item ng-if="data.type !== 'notification' && data.from == mySelf" class="md-3-line md-long-text" >
+                <div class="md-list-item-text" layout="column" layout-align="center end">
+                    <p style="font-size: 16px; font-weight: 400;">{{data.message}}</p>
+                    <p style="font-size:11px;">{{data.time | date:'shortTime'}}</p>
+                </div>
+                <img style="margin: 21px 15px 0px;" ng-src="data:image/png;base64,{{$root.profilePicture}}" src="data:image/png;base64,{{$root.profilePicture}}" err-src="images/intouch-images/contacts.png" class="md-avatar" hide-sm hide-md>
+            </md-list-item>
+
+            <md-list-item ng-if="data.type !== 'notification' && data.from !== mySelf" class="md-3-line md-long-text" >
+            <img src="data:image/png;base64,{{Conversation.userDetails.profile_pic}}" ng-src="data:image/png;base64,{{Conversation.userDetails.profile_pic}}" class="md-avatar" err-src="images/intouch-images/contacts.png" hide-sm hide-md>
+            <div class="md-list-item-text">
+                <p style="font-size: 16px; font-weight: 400;">{{data.message}}</p>
+                <p style="font-size:11px;">{{data.time | date:'shortTime'}}</p>
+            </div>
+        </md-list-item>
+
+        <div ng-if="data.type == 'notification'" style="
+        margin: 5px;
+        font-size: 14px;
+        color: black;font-style:italic;">
+        <p>{{data.message}}</p>
+    </div>
+</div>
+</div>
+
+</div>
+</perfect-scrollbar>
+<div layout="row" style="height:50px;background-color: #F1F1F1;">
+    <md-button flex="10" class="md-primary" ng-click="upload(picFile);">
+    <md-icon md-svg-icon="icons/ic_attachment_24px.svg"></md-icon>
+</md-button>
+
+<md-input-container style="z-index:10" layout-margin flex="80">
+<input type="text" ng-disabled="messageProgress" ng-model="$root.searchText" ng-keypress="sendChannelMessage($event,$root.searchText); empty($root.searchText);" />
+</md-input-container>
+<md-button flex="10" class="md-primary" ng-click="sendMessageClick($root.searchText)">
+<md-icon md-svg-icon="icons/ic_send_24px.svg"></md-icon>
+</md-button>
+</div>
+
+</div>
+</div>
+
+<div ng-show="showChatSettingsPane" class="intouch-chat-settings-container" layout="column" layout-align="start center">
+    <div class="intouch-chat-settings-container-toolbar" layout="row" layout-align="start center">
+        <md-button ng-click="closeChatSettings()">
+        <md-icon md-svg-icon="icons/ic_close_24px.svg" style="color:rgba(0, 0, 0, 0.5);"></md-icon>
+    </md-button>
+    <p style="color: rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    margin: 10px;">Channel info</p>
+</div>
+<img src="images/appIcons/bubbles.png" class="intouch-chat-settings-image">
+<md-card class="intouch-chat-settings-card" layout="column" layout-align="center center">
+<p>Topic</p>
+<md-divider></md-divider>
+<p class="intouch-chat-settings-card-text">{{Channel.topic}}</p>
+</md-card>
+
+<md-card class="intouch-chat-settings-card" layout="column" layout-align="start center">
+<p>Subscribers</p>
+<md-divider></md-divider>
+
+<perfect-scrollbar class="intouch-chat-container-scroller" wheel-propagation="false" wheel-speed="2" layout="column" layout-align="start start">
+<md-list>
+<md-list-item class="md-2-line intouch-list-item" ng-repeat="person in Channel.members" ng-if="person.status == 'active'" ng-click="showChannelUserOptions($event,person.name)">
+<img ng-src="data:image/png;base64,{{person.profile_pic}}" err-src="images/intouch-images/contacts.png" class="md-avatar intouch-list-item-icon" alt="">
+<div class="md-list-item-text">
+    <h3>{{person.name}}</h3>
+    <p ng-if="person.accessLevel == 'SuperAdmin'">Channel owner</p>
+    <p ng-if="person.accessLevel == 'Admin'">Channel Admin</p>
+</div>
+</md-list-item>
+</md-list>
+</perfect-scrollbar>
+</md-card>
+<md-button ng-if="Channel.data.accessLevel !== 'member'" class="intouch-chat-settings-card-primary-button" style=" background-color: {{$root.shellConfig.themeconfiguration.primarypalette}};" ng-click="addMoreUsers($event,Channel)">
+Add members
+</md-button>
+<md-button class="intouch-chat-settings-card-warn-button" ng-click="leaveChannel($event)">
+Leave Channel
+</md-button>
+</div>
+</div>

@@ -1,0 +1,51 @@
+ .ng-coverflow-container {
+     margin: 10px;
+     padding: 10px;
+     background: rgba(17, 17, 17, 0);
+ }
+ .ng-coverflow-description {
+     color: darkgrey;
+     font-size: 24px;
+     font-weight: 300;
+     position: relative;
+     padding: 30px;
+     animation: description-float-up 0.5s;
+ }
+ .ng-coverflow > li {
+     /*
+        width: 84px; height: 84px; margin-left: -40px;
+*/
+     cursor: pointer;
+     border: none;
+ }
+ .ng-coverflow-item {
+     border-radius: 0% !important;
+     width: 250px;
+     height: 250px;
+     padding: 20px;
+     background-color: #303E90;
+     font-size: 20px;
+     font-weight: 300;
+ }
+ .ng-coverflow-item img {
+     border-radius: 0%;
+     box-shadow: none;
+     -webkit-box-reflect: none;
+     width: 150px;
+     height: 150px;
+ }
+ @keyframes description-float-up {
+     from {
+         opacity: 0;
+         transform: translateY(150px);
+     }
+     to {
+         opacity: 1;
+         transform: translateY(0px);
+     }
+ }
+ .app-switcher-close {
+     position: fixed;
+     top: 48px;
+     right: 10px;
+ }

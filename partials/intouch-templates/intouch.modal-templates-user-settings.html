@@ -1,0 +1,50 @@
+<md-dialog style="min-width:30vw;">
+    <md-toolbar style="min-height:48px; background-color:{{$root.shellConfig.themeconfiguration.primarypalette}}; height:48px;">
+        <div class="md-toolbar-tools" layout="row" layout-align="space-around center" style="height:40px;">
+            <p style="padding:10px;font-size:16px;font-weight:300;">{{user.fname}}</p>
+        </div>
+    </md-toolbar>
+    <md-content layout="column" layout-align="start center" style="background-color:rgb(238, 238, 238);">
+        <!--
+        <div layout="column" layout-align="start center">
+            <img src="images/connect/cover1.jpg" class="intouch-chat-settings-image">
+        </div>
+        <md-card class="intouch-chat-settings-card" layout="column" layout-align="center center">
+            <p>User details</p>
+            <md-divider style="width:80%;"></md-divider>
+            <md-list>
+                <md-list-item>
+                    <md-icon md-svg-icon="icons/ic_person_24px.svg"></md-icon>
+                    <p> {{ user.fname }} </p>
+                </md-list-item>
+                <md-list-item>
+                    <md-icon md-svg-icon="icons/ic_home_24px.svg"></md-icon>
+                    <p> {{ user.location }} </p>
+                </md-list-item>
+                <md-list-item>
+                    <md-icon md-svg-icon="icons/ic_email_24px.svg"></md-icon>
+                    <p> {{ user.email }} </p>
+                </md-list-item>
+                <md-list-item>
+                    <md-icon md-svg-icon="icons/ic_phone_24px.svg"></md-icon>
+                    <p> {{ user.mobile }} </p>
+                </md-list-item>
+            </md-list>
+        </md-card>
+-->
+        <md-card ng-if="channel.data.accessLevel !== 'member'" class="intouch-chat-settings-card" layout="column" layout-align="start center">
+            <p>User status</p>
+            <md-divider style="width:80%;"></md-divider>
+            <md-radio-group ng-model="user.accessLevel" style="font-size: 13px;
+    color: #767676;
+    width: 80%;">
+                <!--                <md-radio-button value="SuperAdmin">Super Admin</md-radio-button>-->
+                <md-radio-button value="Admin" ng-disabled="accesslevelMember"> Admin </md-radio-button>
+                <md-radio-button value="member" ng-disabled="accesslevelMember">Member</md-radio-button>
+            </md-radio-group>
+
+        </md-card>
+        <md-button ng-if="channel.data.accessLevel !== 'member'" class="intouch-chat-settings-card-primary-button" style=" background-color: {{$root.shellConfig.themeconfiguration.primarypalette}};" ng-click="updateUserAccessLevel()">update</md-button>
+        <md-button ng-if="channel.data.accessLevel !== 'member'" class="intouch-chat-settings-card-warn-button" ng-click="removeUserFromChannel()" ng-hide="nativeUserAccessLevel == 'member'">Remove</md-button>
+    </md-content>
+</md-dialog>

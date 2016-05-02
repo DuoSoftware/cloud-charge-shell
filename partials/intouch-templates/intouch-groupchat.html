@@ -1,0 +1,197 @@
+<!--div ui-view></div-->
+
+<div style=' height:48px; background-color:{{$root.shellConfig.themeconfiguration.accentpalette}};
+  width: 100%; color:white' layout="column">
+    <!--APP DETAILS START-->
+    <div layout="row" flex layout-align="space-between center">
+        <!-- user name + controls-->
+
+        <div layout-padding layout="row" layout-align="start center" id="conversation-title">
+            <label style='font-size:20px;font-weight:200'>{{selectedgroup.convo_name}}</label>
+            <md-button ng-if="minimizeIcon && selectedUser.quickNote !== ''" ng-click="maximizeNote()" style="border-radius:100%;line-height:10px;">
+                <ng-md-icon icon="speaker_notes" size="24" style="fill:lightgrey">
+                    <md-tooltip>
+                        open QuickNote
+                    </md-tooltip>
+                </ng-md-icon>
+            </md-button>
+
+
+        </div>
+        <div layout="row" layout-align="center center" layout-padding ng-init='showImage=true'>
+            <div style="animation: fadeIn 0.6s ease-in-out;" layout="row" layout-align="end center">
+                <md-button ng-click="call(selectedUser);" class="dropPane" ng-if="showPane">
+                    <ng-md-icon icon="call"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="addNote();" class="dropPane" ng-if="showPane">
+                    <ng-md-icon icon="note_add"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="showAllUsers($event,selectedUser);" class="dropPane" ng-if="showPane">
+                    <ng-md-icon icon="group_add"></ng-md-icon>
+                </md-button>
+
+            </div>
+            <md-button ng-click="showOptionsPane();" style="border-radius:100%;line-height:10px;">
+                <ng-md-icon icon="{{menuIcon}}" style="fill:lightgrey;">
+                    <md-tooltip>
+                        More Options
+                    </md-tooltip>
+                </ng-md-icon>
+            </md-button>
+        </div>
+    </div>
+</div>
+<md-divider></md-divider>
+
+<div class="container" style="width: 100%;background-color:white; ">
+    <!--    <div class="chatbox" ng-scrollbars ng-scrollbars-config="scrollbarConfig">-->
+    <div class="chatbox" style="height:75vh;">
+        <div id='chatContentLarge' layout="column" style="height:75vh;">
+            <!--THIS IS THE CHAT CONTENT HOLDER-->
+            <div ng-repeat="data in selectedgroup.msg">
+                <div ng-if="data.sender == mySelf " layout-margin>
+                    <md-card class='md-card-right' style='background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};float:right; color:white;max-width:80%;'>
+                        <md-card-content ng-if="data.content.type == 'text'">
+                            <p style="word-wrap:break-word;margin:0px;">{{data.content.content}}</p>
+                        </md-card-content>
+                        <md-card-content ng-if="data.content.type == 'file'">
+                            <img src='img/uploads/{{data.content.content}}' style="max-width:30vw; max-height:30vh;" ng-mouseenter="expand= true">
+                            <center ng-mouseleave="expand = false">
+                                <div ng-if="expand" style="position: absolute;
+                                                                                            z-index: 1;
+                                                                                            top: 0vh;
+                                                                                            right: 0vw;
+                                                                                            /* left: 0vw; */
+                                                                                            background-color: rgba(0, 0, 0, 0.38);
+                                                                                            width: 99%;
+                                                                                            height: 99%;" layout="row" layout-align="center center">
+                                    <md-button class="md-fab md-mini" ng-click="openImage(data,$event);" style="border: 1px solid white;
+                                                                         right:5px;
+                                                                         background-color: rgba(240, 248, 255, 0.01);">
+                                        <ng-md-icon icon="fullscreen" size="24" style="line-height: 50px; fill:white"></ng-md-icon>
+                                    </md-button>
+                                    <md-button class="md-fab md-mini" ng-click="downloadImage(data);" style="border: 1px solid white;
+                                                                         background-color: rgba(240, 248, 255, 0.01);">
+                                        <ng-md-icon icon="file_download" size="24" style="line-height: 50px; fill:white;"></ng-md-icon>
+                                    </md-button>
+                                </div>
+                            </center>
+                        </md-card-content>
+                    </md-card>
+                </div>
+
+
+                <div ng-if="data.sender == Conversation.userDetails.username" style='float:left' layout-margin>
+                    <img src={{Conversation.userDetails.profile_pic}} width='40px' height='40px' style='border-radius:100px;margin-top:10px;margin-left:24px;'>
+                    <md-card class='md-card-left' style='background-color:#fafafa;float:right; color:{{$root.shellConfig.themeconfiguration.accentpalette}};max-width:80%;'>
+                        <md-card-content ng-if="data.content.type == 'text'">
+                            <p style="word-wrap:break-word;margin:0px;  ">{{ data.content.content }}</p>
+                        </md-card-content>
+                        <md-card-content ng-if="data.content.type == 'file'">
+                            <img src='img/uploads/{{data.content.content}}' style="max-width:30vw; max-height:30vh;" ng-mouseenter="expand= true">
+                            <center ng-mouseleave="expand = false">
+                                <div ng-if="expand" style="position: absolute;
+                                                                                            z-index: 1;
+                                                                                            top: 0vh;
+                                                                                            right: 0vw;
+                                                                                            /* left: 0vw; */
+                                                                                            background-color: rgba(0, 0, 0, 0.38);
+                                                                                            width: 99%;
+                                                                                            height: 99%;" layout="row" layout-align="center center">
+                                    <md-button class="md-fab md-mini" ng-click="openImage(data,$event);" style="border: 1px solid white;
+                                                                         right:5px;
+                                                                         background-color: rgba(240, 248, 255, 0.01);">
+                                        <ng-md-icon icon="fullscreen" size="24" style="line-height: 50px; fill:white"></ng-md-icon>
+                                    </md-button>
+                                    <md-button class="md-fab md-mini" ng-click="downloadImage(data);" style="border: 1px solid white;
+                                                                         background-color: rgba(240, 248, 255, 0.01);">
+                                        <ng-md-icon icon="file_download" size="24" style="line-height: 50px; fill:white;"></ng-md-icon>
+                                    </md-button>
+                                </div>
+                            </center>
+                        </md-card-content>
+                    </md-card>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--div layout layout-sm="column" layout-margin>
+				<md-input-container flex>
+					<label>Type here...</label>
+					<input type="text" ng-model="what" />
+				</md-input-container>
+				 <md-select flex placeholder="Product Sub Category" ng-model="someVal" class="mdselect">
+					  <md-option value="1">One</md-option>
+					  <md-option value="2">Two</md-option>
+				  </md-select>
+				</div-->
+
+    <!--CHAT INPUT-->
+
+    <!--div layout="row" layout-margin>
+        <md-autocomplete flex="90"
+          ng-disabled="isDisabled"
+          md-no-cache="noCache"
+          md-selected-item="selectedItem"
+        ng-keypress="sendMessage($event,searchText); empty(searchText);"
+          md-search-text="$root.searchText"
+          md-selected-item-change="selectedItemChange(item)"
+          md-items="item in querySearch(searchText)"
+          md-item-text="item.display"
+          md-min-length="0"
+          placeholder="Type here..."
+                         >
+
+      </md-autocomplete>
+    <md-button flex="10" class="md-primary" ng-click="sendmsg(searchText);">
+        <md-icon class="ion-checkmark-round"></md-icon>
+        </md-button>
+    </div-->
+
+    <md-card layout="row" style="height:50px;background-color:#D4D6E4;">
+        <md-input-container flex style="width:90%" layout-margin>
+            <input type="text" ng-model="$root.searchText" ng-keypress="sendMessage($event,$root.searchText); empty($root.searchText);" />
+        </md-input-container>
+        <md-icon class="ion-paperclip" style="font-size:x-large;" ngf-select ng-model="picFile" ngf-multiple="true"></md-icon>
+        <md-button flex="10" class="md-primary" ng-click="upload(picFile);">
+            <md-icon class="ion-paper-airplane" style="font-size:x-large;"></md-icon>
+            </md-button-->
+    </md-card>
+
+    <!--CHAT INPUT-->
+</div>
+<md-card ng-if="showNote" id="quickNote" class="quickNote" style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};">
+    <!--    <md-toolbar style="min-height:48px; background-color:rgba(29, 132, 214,0); height:48px;">-->
+
+    <div style="background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};height:40px;" layout="row" layout-align="space-between center">
+        <p style="color:lightgrey;font-size: medium;margin:10px;">QuickNote</p>
+        <div layout="row" layout-align="end center">
+            <md-button style="line-height:8px;border-radius:100%;" ng-click="minimizeNote()">
+                <ng-md-icon icon="fullscreen_exit" size="24" style="fill:lightgrey"></ng-md-icon>
+            </md-button>
+            <md-button style="line-height:8px;border-radius:100%;" ng-click="deleteNote($event)">
+                <ng-md-icon icon="delete" size="24" style="fill:lightgrey"></ng-md-icon>
+            </md-button>
+        </div>
+    </div>
+    <md-content style="height:calc(100% - 40px);bottom:10px;overflow:hidden;">
+        <textarea ng-model="selectedUser.quickNote" style="resize:none; width:100%; height:100%; overflow:hidden;
+    color: white;background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};border:none;padding: 10px;
+    font-size: 13px;
+    font-weight: 100;
+    font-family: inherit;" ng-keypress="saveNote($event,Conversation.userDetails.quickNote);">
+        </textarea>
+    </md-content>
+</md-card>
+
+
+<script>
+    jsPlumb.ready(function() {
+        jsPlumb.draggable("quickNote");
+    });
+
+</script>

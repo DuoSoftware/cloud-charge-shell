@@ -1,0 +1,1991 @@
+/*Application shell common styles*/
+
+
+/*version 1.0*/
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,500,300italic,500italic,700italic,900,300);
+body {
+    /*background:url(images/shellAssets/background/blur-background12.jpg) no-repeat;
+	background-size: 100% 100%;*/
+    background: rgba(30, 30, 30, 1);
+    overflow: hidden !important;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+    display: none;
+}
+* {
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+}
+*:focus {
+    outline: 0;
+}
+
+/*Duo world framework view container styles*/
+
+
+/*#duoWorld-framework-main-container (framework main view styles)*/
+
+#duoWorld-framework-main-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/*------------------------------------- framework entry styles begin ----------------------------*/
+
+
+/*#duoWorld-framework-entry-container (framework entry parent container view)*/
+
+#duoworld-framework-entry-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(215deg, #1e568f, #eb99bd, #0089ca, #bd4a8c);
+    background-size: 800% 800%;
+    overflow: hidden;
+    -webkit-animation: AnimationName 31s ease infinite;
+    -moz-animation: AnimationName 31s ease infinite;
+    animation: AnimationName 31s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 94% 0%
+    }
+    50% {
+        background-position: 7% 100%
+    }
+    100% {
+        background-position: 94% 0%
+    }
+}
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 94% 0%
+    }
+    50% {
+        background-position: 7% 100%
+    }
+    100% {
+        background-position: 94% 0%
+    }
+}
+@keyframes AnimationName {
+    0% {
+        background-position: 94% 0%
+    }
+    50% {
+        background-position: 7% 100%
+    }
+    100% {
+        background-position: 94% 0%
+    }
+}
+#duoworld-framework-entry-form-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.registerLoginViewLinks {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+}
+.registerLoginViewLinks a {
+    text-decoration: none;
+}
+#companyCygilScroll {
+    position: fixed !important;
+    bottom: 10px;
+    right: 10px;
+    display: block;
+    opacity: 0.2;
+    z-index: 0;
+}
+#loginFrame {
+    background: rgba(255, 255, 255, 1);
+    height: auto;
+    width: 400px;
+    z-index: 1;
+}
+#registerFrame {
+    background: rgba(255, 255, 255, 1);
+    height: auto;
+    width: 400px;
+    z-index: 1;
+}
+#fw-entry-bannerArea {
+    width: 100%;
+    height: 135px;
+}
+.fw-entry-summitInfoBtn {
+    padding: 0px 15px;
+}
+.fullWidth {
+    width: 100% !important;
+}
+#duoworld-framework-entry-form-container.ng-enter {
+    -webkit-animation: bounceIn 0.75s ease both;
+    animation: bounceIn 0.75s ease both;
+}
+#duoworld-framework-entry-form-container.ng-leave {
+    -webkit-animation: fadeOut 0.3s ease both;
+    animation: fadeOut 0.3s ease both;
+}
+.tennantBranding {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 48px;
+    width: 100%;
+    cursor: pointer;
+}
+.tennantBranding img {
+    display: block;
+    position: relative;
+    top: 3px;
+    left: 65px;
+    width: 160px;
+    height: 42px;
+}
+
+/*--------------------------------------- framework entry styles end ----------------------------*/
+
+
+/*---------------------------------------- framework styles -------------------------------------*/
+
+#duoworld-framework-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#duoworld-framework-view-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    height: calc(100% - 48px);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/*duoworld-framework-container - side pannel components*/
+
+
+/*profileWidget Component styling */
+
+.profileWidget {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+.profileWidget-Banner {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+}
+.profileWidget-Banner img {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    margin-left: -50px;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.profileWidget-Banner span {
+    position: relative;
+    top: 30px;
+    font-size: 36px;
+    color: #80cfb3;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+.profileWidget-controls {
+    position: relative;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    padding-top: 0px;
+    margin: 0;
+    border-top: 1px solid #1f292e;
+    border-bottom: 1px solid #1f292e;
+}
+.profileWidget-controls md-button {
+    height: 100%;
+    border-radius: 0px;
+    font-size: 18px;
+    color: #80cfb3 !important;
+    border-right: 1px solid #1f292e;
+}
+.profileWidget-controls md-button:last-child {
+    border-right: none;
+}
+.frameWork-profile-controlButtons {
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.profileWidget-infoSummary {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: auto;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+/*Profile widget component styling end*/
+
+
+/*Other side nav components*/
+
+.quickAccessAppDrawer {
+    position: relative;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+.quickAccessAppCategorySection {
+    width: 100%;
+}
+.quickAccessAppCategorySection span {
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    color: #80cfb3;
+    padding: 5px 5px 5px 5px;
+    border-left: 10px solid #80cfb3;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.quickAccessAppCategorySection md-button {
+    border-radius: 0px;
+    font-size: 16px;
+    text-transform: none;
+    color: #80cfb3 !important;
+    width: 100%;
+}
+.quickAccessAppCategorySection button {
+    text-align: left !important;
+    padding-left: 40px;
+}
+.quickAccessAppCategorySection button img {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+}
+.frameWorkInfoIndicator {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: red;
+    height: 50px;
+}
+.sideNavHeader md-button {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    text-transform: none;
+    color: #263238 !important;
+}
+.sideNavHeader button {
+    text-align: left !important;
+    padding-left: 60px;
+}
+.sideNavHeader button img {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+}
+
+/*Other side nav components end*/
+
+
+/*framework window container common styles*/
+
+#frameworkWindowPerspectiveContainer {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 48px);
+    overflow: hidden;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+/*duoworld-framework-container - header pannel components*/
+
+
+/*------------------------------------- framework styles end-------------------------------------*/
+
+#duoworld-framework-dock-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.dock-child-views {
+    position: relative;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+#duoworld-framework-dock-collections-container {}
+#duoworld-framework-dock-applications-container {}
+#duoworld-framework-dock-applications-container .mCSB_container {
+    /*scroller wrapper container position correction*/
+    left: 50% !important;
+    margin-left: -480px;
+}
+#duoworld-framework-dock-widgets-container {}
+#duoworld-framework-launcher-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.duoworld-framework-launcher-application-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/*----------------------------------------dw-dock-styling---------------------------------------*/
+
+.panelTitleHolder {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: block;
+    z-index: 0;
+}
+.panelTitleHolder h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 96px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+/*-----------------------------------Dock Style end here ---------------------------------------*/
+
+
+/*.md-footer{
+	position:absolute;
+	top:50px;
+	left:0;
+	width:100%;
+	height:50px;
+	background:rgb(255,255,255);
+}*/
+
+.fw-childWindow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+.ng-enter {
+    -webkit-animation: scaleUpCenter 0.7s ease both;
+    animation: scaleUpCenter 0.7s ease both;
+}
+.ng-leave {
+    -webkit-animation: scaleDownCenter 0.7s ease both;
+    animation: scaleDownCenter 0.7s ease both;
+}
+
+/********************************* window transitions keyframes **************************************/
+
+
+/* scale and fade */
+
+@-webkit-keyframes scaleDown {
+    from {}
+    to {
+        opacity: 0;
+        -webkit-transform: scale(.8);
+    }
+}
+@keyframes scaleDown {
+    from {}
+    to {
+        opacity: 0;
+        -webkit-transform: scale(.8);
+        transform: scale(.8);
+    }
+}
+@-webkit-keyframes scaleUp {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(.8);
+    }
+}
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(.8);
+        transform: scale(.8);
+    }
+}
+@-webkit-keyframes scaleUpDown {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+    }
+}
+@keyframes scaleUpDown {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+}
+@-webkit-keyframes scaleDownUp {
+    from {}
+    to {
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+    }
+}
+@keyframes scaleDownUp {
+    from {}
+    to {
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+}
+@-webkit-keyframes scaleDownCenter {
+    from {}
+    to {
+        opacity: 0;
+        -webkit-transform: scale(.7);
+    }
+}
+@keyframes scaleDownCenter {
+    from {}
+    to {
+        opacity: 0;
+        -webkit-transform: scale(.7);
+        transform: scale(.7);
+    }
+}
+@-webkit-keyframes scaleUpCenter {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(.7);
+    }
+}
+@keyframes scaleUpCenter {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(.7);
+        transform: scale(.7);
+    }
+}
+
+/*framework specific*/
+
+#framework-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.partialContainer {}
+.home-pannel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+md-whiteframe {
+    z-index: 1;
+}
+.dockPannelInnerContainer {
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#dock-pannel-application-tray.pannelInnerContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 960px;
+    height: auto;
+    padding: 32px;
+    z-index: 1;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/*[.md-framework-pannel-apptray] button */
+
+#dock-pannel-application-tray button {
+    margin: 36px;
+    height: 140px;
+    width: 100px;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/*[.md-framework-pannel-apptray] button .md-applicationIcon-icon-section*/
+
+#dock-pannel-application-tray button .md-applicationIcon-icon-section {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 64px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/*[.md-framework-pannel-apptray] button .md-applicationIcon-icon-section*/
+
+#dock-pannel-application-tray button .md-applicationIcon-appname-section {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    white-space: normal;
+    text-transform: none;
+    text-align: center;
+    color: #fff;
+    padding: 5px;
+    text-shadow: 1px 1px 2px rgba(50, 50, 50, 1);
+    box-sizing: border-box;
+}
+.dockPannelTitle {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    bottom: 10px;
+    right: 20px;
+    font-weight: 300;
+    font-size: 150px;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+}
+.nav {
+    text-align: center;
+    display: block;
+    position: absolute;
+    z-index: 1002;
+    left: 0;
+    bottom: -4px;
+    right: 0;
+    height: 48px;
+}
+.nonDraggableImage {
+    -webkit-user-drag: none;
+}
+.nav .wrapper {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1em 0 .8em;
+}
+.nav ul {
+    margin: 0;
+    width: 100%;
+}
+.nav .dot,
+.nav .dot a {
+    display: inline-block;
+    zoom: 1;
+}
+.dots .dot {
+    position: relative;
+    margin: 0 8px;
+    width: 12px;
+    height: 12px;
+}
+.dots .dot a {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #FFF;
+    border: 1px solid transparent;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: background-color 0.25s, border-color 0.25s;
+    -moz-transition: background-color 0.25s, border-color 0.25s;
+    transition: background-color 0.25s, border-color 0.25s;
+}
+.dots .dot a.active {
+    border-color: #FFF;
+    background-color: transparent;
+}
+
+/*fraemwork shell pannel styling*/
+
+.applicationIconGridContainer {
+    position: relative;
+    top: 0;
+    left: 50%;
+    width: 960px;
+    height: auto;
+    margin-left: -480px;
+    padding: 32px;
+}
+.applicationIconGridContainer md-button {
+    margin: 36px;
+    height: 140px;
+    width: 100px;
+    padding: 0;
+    border: 1px solid red;
+}
+.applicationIconGridContainer button img {
+    float: left;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+.applicationIconGridContainer button span {
+    float: left;
+    clear: left;
+    margin-top: 10px;
+    width: 100%;
+    white-space: normal;
+    text-transform: none;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(50, 50, 50, 1);
+}
+
+/*application window related styling*/
+
+.defaultDimensions {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    margin-top: -274px;
+    margin-left: -480px;
+    width: 960px;
+    height: 548px;
+    background: #fff;
+    -webkit-transition: all 350ms cubic-bezier(0.000, 1, 0.310, 1);
+    /* older webkit */
+    -webkit-transition: all 350ms cubic-bezier(0.000, 1.005, 0.310, 1.205);
+    -moz-transition: all 350ms cubic-bezier(0.000, 1.005, 0.310, 1.205);
+    -o-transition: all 350ms cubic-bezier(0.000, 1.005, 0.310, 1.205);
+    transition: all 350ms cubic-bezier(0.000, 1.005, 0.310, 1.205);
+    /* custom */
+}
+.expandedDimensions {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.maximisedDimensions {
+    position: absolute !important;
+    top: 0% !important;
+    left: 0% !important;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.appFrameCover-attributeMaster {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    height: calc(100% - 48px);
+    width: 100%;
+    background: #ffeb3b;
+    z-index: 6;
+}
+.appFrameCover-frameworkSettings {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    height: calc(100% - 48px);
+    width: 100%;
+    background: #263238;
+    z-index: 6;
+    color: #80cfb3;
+}
+.appFrameCover-frameworkSettings-displayNone {
+    display: none;
+}
+.childAppControlsButton {
+    width: 48px;
+    height: 48px;
+    border-radius: 0px !important;
+    margin: 0 !important;
+}
+#globalSearchBox {
+    width: 90%;
+    top: 20px;
+    left: 5%;
+}
+.sliderPanelContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.panelTestLayout {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*Icon Styling*/
+
+.m36 {
+    width: 36px;
+    height: 36px;
+    color: rgba(35, 35, 35, 0.9);
+}
+.s24 {
+    width: 24px;
+    height: 24px;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+.m36White {
+    width: 36px;
+    height: 36px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.s24Dark {
+    width: 24px;
+    height: 24px;
+    color: rgba(25, 25, 25, 0.7);
+}
+
+/*dw-child-application-stylings*/
+
+.md-child-application-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ececec;
+    font-family: "Roboto", 'Helvetica Neue, Helvetica, Arial';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+#dw-child-application-header-control-bar {
+    position: relative;
+    top: -48px;
+    background: rgba(0, 0, 0, 0.0);
+    left: 0px;
+    width: 100%;
+    height: 48px;
+    padding: 0px 8px 0px 8px;
+    z-index: 2;
+    -webkit-transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    -moz-transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    -o-transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    box-sizing: border-box;
+}
+.headerBarRevealed {
+    top: 0px;
+    background: rgba(0, 0, 0, 0.1);
+}
+.md-framework-pannel-featureHolder-menu-view {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    opacity: 1;
+}
+.md-framework-pannel-featureHolder-search-view {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    background: rgba(10, 10, 10, 0.05);
+}
+.dw-default-application-header-control-bar-left-section img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.dw-default-application-header-control-bar-left-section span {
+    font-size: 18px;
+    color: #999999;
+}
+.cad24 {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+.dw-childapp-backgroundcover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #5f7c8a;
+    z-index: 1;
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+.dw-childapp-splash-container {
+    width: 500px;
+    height: 400px;
+}
+.dw-childapp-splash-logo-container {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.dw-childapp-splash-text-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.dw-childapp-splash-title {
+    font-size: 48px;
+    color: #fff;
+    font-weight: 100;
+}
+.dw-childapp-splash-loadingtextindicator {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 100;
+}
+.dw-childapp-splash-loadingspinner .md-gap {
+    border-top-color: #fff !important;
+    border-bottom-color: #fff !important;
+}
+.dw-childapp-splash-loadingspinner .md-left .md-half-circle {
+    border-top-color: #fff !important;
+    border-left-color: #fff !important;
+}
+.dw-childapp-splash-loadingspinner .md-right .md-half-circle {
+    border-top-color: #fff !important;
+    border-right-color: #fff !important;
+}
+.top-splash-elements-entry {
+    position: relative;
+    bottom: -150px;
+    transition: all 0.7s cubic-bezier(.55, 0, .1, 1);
+    -o-transition: all 0.7s cubic-bezier(.55, 0, .1, 1);
+    -moz-transition: all 0.7s cubic-bezier(.55, 0, .1, 1);
+    -webkit-transition: all 0.7s cubic-bezier(.55, 0, .1, 1);
+}
+.bottom-splash-elements-entry {
+    position: relative;
+    top: -400px;
+    transition: all 0.7s cubic-bezier(.55, 0, .1, 1);
+    -o-transition: all 0.7s cubic-bezier(.55, 0, .1, 1);
+    -moz-transition: all 0.7s cubic-bezier(.55, 0, .1, 1);
+    -webkit-transition: all 0.7s cubic-bezier(.55, 0, .1, 1);
+}
+
+/*Child app dw-child-application-header-control-bar-right-section*/
+
+.dw-child-application-header-control-bar-left-section {
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.dw-child-application-header-control-bar-left-section span {
+    margin-left: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    position: relative;
+    top: -50px;
+    transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    -o-transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    -moz-transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    -webkit-transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+}
+.dw-child-application-header-control-bar-left-section img {
+    position: relative;
+    top: -50px;
+    transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    -o-transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    -moz-transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+    -webkit-transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+}
+.userProfileControls {
+    position: relative;
+    bottom:
+}
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*Masonry Style*/
+
+.module-container {
+    width: 100%;
+    border: 1px solid #d1d1d1;
+    /* clearfix */
+}
+.module-container .gutter-sizer {
+    width: 2%;
+    display: none;
+}
+.module-container .module-container:after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+.module-container .module,
+.module-container .module-sizer {
+    height: 200px;
+    width: 25%;
+    border: 1px solid #eaeaea;
+    background-color: #c4c4c4;
+}
+.module-container .module {
+    float: left;
+}
+.module-container .module.wide {
+    width: 50%;
+}
+.module-container .module:hover {
+    background-color: #bfbfbf;
+    cursor: pointer;
+}
+.module-container .module.is-dragging {
+    z-index: 2;
+}
+
+/*Application Panel */
+
+.md-framework-parent-panel-layout {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.md-framework-panel-content-container {
+    height: 100%;
+    width: 100%;
+    padding-top: 20px;
+    overflow-y: auto;
+}
+#list {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.30);
+    position: relative;
+    margin-top: 0px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.tile {
+    display: block;
+    position: absolute;
+    background-color: yellowgreen;
+    color: #3A3A4D;
+    padding: 5px;
+    font-weight: bold;
+}
+.md-framework-pannel-featureHolder {
+    position: fixed;
+    z-index: 1;
+    top: 58px;
+    left: 0.5%;
+    width: 99%;
+    height: 48px;
+}
+.md-framework-pannel-featureHolder-menu-view {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    opacity: 1;
+}
+.md-framework-pannel-featureHolder-search-view {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    background: rgba(10, 10, 10, 0.05);
+}
+.md-framework-pannel-featureHolder-search-view md-input-container {
+    width: 100%;
+    padding: 2px !important;
+}
+.md-framework-pannel-featureHolder-search-view md-input-container input {
+    color: rgba(255, 255, 255, 1) !important;
+    border: none !important;
+}
+
+/*[.md-framework-pannel-apptray]*/
+
+
+/*
+	.md-framework-pannel-apptray{
+		min-height:100%;
+		width:960px;
+		z-index:1;
+	}
+*/
+
+.md-framework-pannel-widgettray {
+    min-height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+/*[.md-framework-pannel-apptray] button */
+
+.appShorcutContainer {
+    margin: 0 auto;
+    width: 120px;
+    height: 140px;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: all 0.2s cubic-bezier(.55, 0, .1, 1);
+    -o-transition: all 0.2s cubic-bezier(.55, 0, .1, 1);
+    -moz-transition: all 0.2s cubic-bezier(.55, 0, .1, 1);
+    -webkit-transition: all 0.2s cubic-bezier(.55, 0, .1, 1);
+}
+.shortcutExpanded {
+    height: 188px;
+    overflow: hidden;
+    background: rgba(158, 158, 158, 0.1);
+    transition: all 0.2s cubic-bezier(.55, 0, .1, 1);
+    -o-transition: all 0.2s cubic-bezier(.55, 0, .1, 1);
+    -moz-transition: all 0.2s cubic-bezier(.55, 0, .1, 1);
+    -webkit-transition: all 0.2s cubic-bezier(.55, 0, .1, 1);
+}
+.appshortcutWidget {
+    height: 140px;
+    width: 120px;
+    margin: 0px !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+.md-appDetails-container {
+    position: relative;
+    left: 10px;
+    height: 140px;
+    width: 100px;
+}
+.md-appControls-container {
+    width: 100%;
+    height: 48px;
+}
+
+/*[.md-framework-pannel-apptray] button .md-applicationIcon-icon-section*/
+
+.appshortcutWidget .md-applicationIcon-icon-section {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 64px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/*[.md-framework-pannel-apptray] button .md-applicationIcon-icon-section*/
+
+.appshortcutWidget .md-applicationIcon-appname-section {
+    position: relative;
+    height: 60px;
+    width: 120px;
+    overflow: hidden;
+    text-transform: none;
+    white-space: normal !important;
+    line-height: 18px;
+    color: #fff;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(50, 50, 50, 1);
+}
+.app-noshowStyles {
+    background: #ffffff;
+    padding: 10px;
+}
+
+/*Modal Styles (appInfoModal) - start*/
+
+.appInfoModalContainer {
+    width: 500px;
+    height: 250px;
+}
+.appInfoIconContainerSection {
+    width: 200px;
+    height: 90%;
+    border-right: 1px solid rgba(175, 175, 175, 1);
+}
+.appInfoDetailsContainerSection {
+    width: 300px;
+    height: auto;
+}
+.appInfoDetailsContainerSection span:nth-child(1) {
+    margin-left: 20px;
+    color: rgba(100, 100, 100, 1);
+    font-weight: 300;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.appInfoDetailsContainerSection span:nth-child(2) {
+    color: rgba(75, 75, 75, 1);
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+.appInfoDetailsContainerSection span:nth-child(3) {
+    color: rgba(50, 50, 50, 1);
+    margin-left: 20px;
+    font-size: 16px;
+    display: block;
+    width: 260px;
+}
+
+/*Modal Styles (appInfoModal) - end*/
+
+
+/*Modal Styles (tennantCollectionModal) - start*/
+
+.tennantCollectionModalContainer {
+    width: 600px;
+    height: 500px;
+}
+.tennantCollectionModalContainerHeader {
+    width: 100%;
+    height: 48px;
+}
+.tennantCollectionModalHeaderIconHolder {
+    width: 48px;
+    height: 48px;
+}
+.tennantCollectionModalHeaderTextHolder {
+    width: calc(100% - 48px);
+    height: 48px;
+}
+.tennantCollectionModalHeaderTextHolder span {
+    font-size: 24px;
+    color: rgba(100, 100, 100, 1);
+    font-weight: 300;
+}
+.tennantCollectionModalContainerSearch {
+    width: 100%;
+    height: 48px;
+    background: rgba(240, 240, 240, 1);
+}
+.tennantCollectionModalContainerSearch .searchInputContainer {
+    padding-bottom: 2px;
+    margin-top: 9px;
+    width: 95%;
+    margin-left: 2.5%;
+}
+.tennantCollectionModalContainerContent {
+    width: 100%;
+    height: calc(100% - 96px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+.tennantItemContainer {
+    width: 576px;
+    height: 48px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(240, 240, 240, 1);
+    cursor: pointer;
+}
+.tennantItemContainerIcon {
+    width: 48px;
+    height: 48px;
+}
+.tennantItemContainerText {
+    width: calc(100% - 48px);
+    height: 48px;
+    overflow: hidden;
+}
+.tennantItemContainerText span {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(75, 75, 75, 1);
+}
+
+/*Favorite App Item Styles - start*/
+
+.favoriteAppItemContainer {
+    width: 280px;
+    height: 48px;
+    margin-left: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(235, 235, 235, 1);
+}
+.favoriteAppItemContainer:last-child {
+    border: none;
+}
+.favoriteAppItemContainerIcon {
+    width: 48px;
+    height: 48px;
+}
+.favoriteAppItemContainerDetails {
+    width: calc(100% - 48px);
+    height: 48px;
+}
+.favoriteAppItemContainerDetails span:nth-child(2) {
+    color: rgba(175, 175, 175, 1);
+    font-size: 13px;
+}
+.favoriteAppIconIndicator {
+    width: 10px;
+    height: 10px;
+    color: #F44336;
+    margin-top: -3px;
+    margin-right: 5px;
+}
+
+/*Favorite App Item Styles - end*/
+
+
+/*Active App Item Styles - start*/
+
+.activeAppItemContainer {
+    width: 280px;
+    height: 48px;
+    margin-left: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(235, 235, 235, 1);
+}
+.activeAppItemContainer:last-child {
+    border: none;
+}
+.activeAppItemContainerIcon {
+    width: 48px;
+    height: 48px;
+}
+.activeAppItemContainerDetails {
+    width: calc(100% - 48px);
+    height: 48px;
+}
+.activeAppItemContainerDetails span:nth-child(2) {
+    color: rgba(175, 175, 175, 1);
+    font-size: 13px;
+}
+.activeAppIconIndicator {
+    width: 12px;
+    height: 12px;
+    color: #FFC107;
+    margin-top: -1px;
+    margin-right: 5px;
+}
+
+/*Active App Item Styles - end*/
+
+
+/*All App Item Styles - start*/
+
+.allAppItemContainer {
+    width: 280px;
+    height: 48px;
+    margin-left: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(235, 235, 235, 1);
+}
+.allAppItemContainer:last-child {
+    border: none;
+}
+.allAppItemContainerIcon {
+    width: 48px;
+    height: 48px;
+}
+.allAppItemContainerDetails {
+    width: calc(100% - 48px);
+    height: 48px;
+}
+.allAppItemContainerDetails span:nth-child(2) {
+    color: rgba(175, 175, 175, 1);
+    font-size: 13px;
+}
+
+/*All App Item Styles - end*/
+
+
+/*Custom App Styles - start*/
+
+.md-child-application-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ececec;
+}
+.md-child-application-header-control-bar {
+    position: relative;
+    z-index: 1;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    padding: 0px 8px 0px 8px;
+    box-sizing: border-box;
+}
+.md-framework-pannel-featureHolder-menu-view {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    opacity: 1;
+}
+.md-framework-pannel-featureHolder-search-view {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    background: rgba(10, 10, 10, 0.05);
+}
+.cad24 {
+    color: #999999;
+}
+.customeAppContainer {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 48px);
+    overflow: hidden;
+    z-index: -2;
+    opacity: 0;
+    top: 50px;
+    background: rgba(10, 10, 10, 0.2);
+    transition: all 1s cubic-bezier(.55, 0, .1, 1);
+    -o-transition: all 1s cubic-bezier(.55, 0, .1, 1);
+    -moz-transition: all 1s cubic-bezier(.55, 0, .1, 1);
+    -webkit-transition: all 1s cubic-bezier(.55, 0, .1, 1);
+    box-sizing: border-box;
+}
+.md-child-application-header-control-bar-left-section img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.md-child-application-header-control-bar-left-section span {
+    font-size: 18px;
+    color: #999999;
+}
+#idRenderDiv {
+    height: calc(100% - 10px) !important;
+    width: 100%;
+    overflow: hidden;
+    box-styling: border-box;
+}
+
+/*---------------------------Dilshan Custom Styling-------------------------------*/
+
+.md-button {
+    margin: 0px !important;
+    min-width: 0 !important;
+}
+md-select {
+    padding-bottom: 26px;
+}
+md-header {
+    z-index: 3;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+.md-sticky-no-effect.md-subheader.md-default-theme {
+    background: #dcedc8;
+    margin-top: -24px;
+    width: 125% !important;
+    margin-left: -24px;
+}
+.md-sticky-clone[sticky-state="active"] {
+    margin-top: 0px !important;
+}
+ul {
+    list-style: none;
+}
+hr {
+    border: 1px solid #B6B6B6;
+}
+md-input-container.md-default-theme .md-input {
+    border-bottom: 1px solid #B6B6B6;
+}
+md-select.md-default-theme .md-select-label.md-placeholder {
+    border-bottom: 1px solid #B6B6B6;
+}
+md-input-container.md-default-theme label {
+    color: rgba(0, 0, 0, 0.54);
+}
+.labelCus {
+    color: rgba(0, 0, 0, 0.54);
+}
+.md-whiteframe-z1 {
+    background: #fff;
+    animation: fromBottom 1.3s 1;
+    -webkit-animation: fromBottom 1.3s 1;
+}
+.dialButtons {
+    height: 45px;
+    width: 70px;
+    margin: 0px !important;
+    min-width: 0 !important;
+}
+@media screen and (max-width: 960px) {
+    .md-toolbar-tools {
+        width: 100%;
+    }
+    .md-whiteframe-z1 {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 599px) {
+    .blankspace {
+        display: none;
+    }
+}
+@media screen and(min-width:768px) {
+    .fabBtn {
+        margin: 35px 83%;
+    }
+}
+
+/*table*/
+
+a {
+    text-decoration: none;
+}
+i {
+    vertical-align: middle;
+    font-size: 24px;
+}
+.md-breadcrumb {
+    padding-left: 88px;
+}
+.JCLRgrip:first-child {
+    left: 105px!important;
+    display: none!important;
+}
+.JColResizer th:first-child {
+    width: 105px!important;
+}
+.md-table {
+    min-width: 100%;
+    border-collapse: collapse;
+}
+.md-table tbody tr:hover,
+.md-table tbody tr:focus {
+    cursor: pointer;
+    background-color: rgba(63, 81, 181, 0.2);
+}
+.md-table-header {
+    border-bottom: 1px solid rgb(230, 230, 230);
+    color: rgb(130, 130, 130);
+    text-align: left;
+    font-size: 0.75em;
+    font-weight: 700;
+    padding: 16px 16px 16px 0;
+}
+.md-table-header a {
+    text-decoration: none;
+    color: inherit;
+}
+.md-table-content {
+    white-space: nowrap;
+    font-size: 0.8em;
+    padding: 16px 16px 16px 0;
+    height: 72px;
+}
+.md-table-td-more {
+    max-width: 72px;
+    width: 72px;
+    padding: 16px;
+}
+.md-table-thumbs {
+    max-width: 104px;
+    width: 104px;
+    padding: 16px 32px;
+}
+.md-table-thumbs div {
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+}
+.md-table-footer {
+    height: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+.md-table-count-info {
+    line-height: 40px;
+    font-size: .75em;
+}
+.md-table-footer-item {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+.md-table-active-page {
+    font-weight: 700;
+}
+.bold {
+    font-weight: 700;
+}
+.grey {
+    color: grey;
+}
+.ps-container >.ps-scrollbar-y-rail >.ps-scrollbar-y {
+    width: 3px !important;
+}
+.ps-container >.ps-scrollbar-y-rail {
+    width: 3px !important;
+}
+.md-card-right {
+    position: relative;
+    margin-right: 12px;
+}
+.md-card-right:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 20px;
+    border-top: 5px solid transparent;
+    border-left: 10px solid white;
+    border-bottom: 5px solid transparent;
+    left: 100%;
+}
+.md-card-left {
+    position: relative;
+    margin-left: 12px;
+}
+.md-card-left:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 20px;
+    border-top: 5px solid transparent;
+    border-left: 10px solid white;
+    border-bottom: 5px solid transparent;
+    right: 100%;
+    transform: rotate(180deg);
+}
+md-card md-card-content {
+    padding: 10px;
+}
+@keyframes fromBottom {
+    0% {
+        transform: translateY(250px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes fromTop {
+    0% {
+        transform: translateY(-250px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@-webkit-keyframes fromBottom {
+    0% {
+        transform: translateY(250px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@-webkit-keyframes fromTop {
+    0% {
+        transform: translateY(-250px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+#userProfilePic {
+    -webkit-animation: scaleAnimation 1.5s 1 ease;
+    -moz-animation: scaleAnimation 1.5s 1 ease;
+    -o-animation: scaleAnimation 1.5s 1 ease;
+}
+@-webkit-keyframes scaleAnimation {
+    from {
+        -webkit-transform: scale(0.1)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+@-moz-keyframes scaleAnimation {
+    from {
+        -moz-transform: scale(0.1)
+    }
+    to {
+        -moz-transform: scale(1)
+    }
+}
+@-o-keyframes scaleAnimation {
+    from {
+        -o-transform: scale(0.1) translate(0px);
+    }
+    to {
+        -o-transform: scale(1)
+    }
+}
+@media only screen and (max-device-width: 480px) {
+    md-toolbar {
+        margin-right: 10% !important;
+        margin-left: 10% !important;
+    }
+}
+
+/*PAGE STRUCTURE FORMAT*/
+
+@font-face {
+    font-family: materialFont;
+    src: url(../fonts/Roboto-Light.ttf);
+}
+@-moz-document url-prefix() {
+    md-select {
+        margin-top: 14px !important;
+    }
+}
+.md-childApp-containerSection {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #ececec;
+}
+.md-childApp-headerSection {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    padding: 0px 8px 0px 8px;
+    margin: 0;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.md-childApp-contentContainerSection {
+    position: relative;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 48px);
+    margin: 0;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+/*Custom App Styles - end*/
+
+
+/*Custom Main Page Styles - start*/
+
+.frameworkLoaderCloak {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(96, 125, 139);
+    z-index: 15000;
+    opacity: 1;
+    display: block;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+.frameworkLoaderCloak-innerContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: none;
+}
+.frameworkLoaderCloak-innerContainer span {
+    margin-top: 30px;
+}
+.tool-bar-control-set md-input-container {
+    margin-right: 20px;
+    width: 100%;
+    padding: 2px !important;
+    background: red;
+    display: none;
+}
+.tool-bar-control-set md-input-container input {
+    color: rgba(255, 255, 255, 1) !important;
+    border: none !important;
+}
+.tool-bar-control-set {
+    height: 100%;
+    padding: 0px 8px 0px 8px;
+    box-sizing: border-box;
+}
+.tool-bar-control-set.middle {
+    width: calc(100% - 500px);
+}
+.dw-global-serach-container {
+    height: 36px;
+    width: 100%;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+}
+.dw-golbal-search-context-tag-section {}
+.dw-golbal-search-context-search-section {}
+.dw-current-tennant-container {
+    width: auto;
+    height: 36px;
+    padding: 0px 8px 0px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.dw-current-tennant-container:hover {
+    background: rgba(255, 255, 255, 0.09);
+}
+.dw-current-tennant {
+    font-weight: 300;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: 5px;
+}
+.dw-global-search-section1 {
+    width: calc(100% - 100px);
+    height: 100%;
+}
+.dw-global-search-section2 {
+    width: 150px;
+    height: 100%;
+    padding: 0px 10px 0px 0px;
+    box-sizing: border-box;
+}
+.dw-sidenav-right-header {
+    width: 100%;
+    height: 48px;
+    background: #3f51b5;
+}
+.dw-sidenav-right-header span {
+    font-size: 16px;
+    color: #fff;
+}
+.dw-global-serach-container .dw-global-search-tag {
+    color: rgb(30, 30, 30);
+    background: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: lowercase;
+    padding: 5px 6px 5px 6px;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+    box-sizing: border-box;
+}
+.dw-global-serach-container .dw-global-search-icon {
+    padding: 4px;
+}
+.dw-global-search-input-box {
+    width: calc(100% - 36px);
+}
+.dw-global-search-input-box input[type="text"] {
+    padding: 10px;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    color: #fff;
+    -webkit-appearance: none;
+    box-shadow: none;
+}
+.dw-global-search-input-box input[type="text"]:focus {
+    outline: none;
+}
+
+/*Custom Main Page Styles - end*/
+
+
+/*Modal Styles (tennantCollectionModal) - end*/
+
+
+/*animated header control custom styles*/
+
+.animatedHeaderControl {
+    animation: controlBtnIconDisplay .7s cubic-bezier(.55, 0, .1, 1);
+    -o-animation: controlBtnIconDisplay .7s cubic-bezier(.55, 0, .1, 1);
+    -moz-animation: controlBtnIconDisplay .7s cubic-bezier(.55, 0, .1, 1);
+    -webkit-animation: controlBtnIconDisplay .7s cubic-bezier(.55, 0, .1, 1);
+    animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+}
+.animatedHeaderControl:nth-child(0) {
+    animation-delay: .2s;
+    -o-animation-delay: .2s;
+    -moz-animation-delay: .2s;
+    -webkit-animation-delay: .2s;
+}
+.animatedHeaderControl:nth-child(1) {
+    animation-delay: .4s;
+    -o-animation-delay: .4s;
+    -moz-animation-delay: .4s;
+    -webkit-animation-delay: .4s;
+}
+.animatedHeaderControl:nth-child(2) {
+    animation-delay: .6s;
+    -o-animation-delay: .6s;
+    -moz-animation-delay: .6s;
+    -webkit-animation-delay: .6s;
+}
+@keyframes controlBtnIconDisplay {
+    from,
+    0%,
+    to {
+        top: -70px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+@-o-keyframes controlBtnIconDisplay {
+    from,
+    0%,
+    to {
+        top: -70px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+@-moz-keyframes controlBtnIconDisplay {
+    from,
+    0%,
+    to {
+        top: -70px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+@-webkit-keyframes controlBtnIconDisplay {
+    from,
+    0%,
+    to {
+        top: -70px;
+    }
+    100% {
+        top: 0px;
+    }
+}

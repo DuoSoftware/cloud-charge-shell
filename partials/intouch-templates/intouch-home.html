@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+<frameworkapp-container routedappname="'INtouch'" routedappiconuri="profilePicture" accentpalette="$root.shellConfig.themeconfiguration.accentpalette">
+
+<body ng-controller="duoworld-framework-shell-launcher-connect-ctrl">
+
+    <div style="overflow:hidden;width:100vw;background-color: white;height:100%;" layout="row">
+        <div style="height:100%; background-color:{{$root.shellConfig.themeconfiguration.primarypalette}};width:304px;" layout="row">
+            <md-content style="width:100%;background-color:rgba(0, 0, 0, 0.2);">
+            <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab style="background-color:inherit;">
+            <md-tab-label>
+            <md-icon md-svg-icon="icons/ic_message_24px.svg" style="color:rgba(245, 245, 245, 0.65);"></md-icon>
+        </md-tab-label>
+        <md-tab-body style="background-color:inherit; height: calc(100vh - 100px);">
+        <md-content style="background-color:inherit; height: calc(100vh - 147px);" ng-include="'partials/intouch-templates/intouch-home-conversations-template.html'">
+    </md-content>
+</md-tab-body>
+</md-tab>
+<md-tab style="background-color:inherit;">
+<md-tab-label>
+<md-icon md-svg-icon="icons/ic_group_24px.svg" style="color:rgba(245, 245, 245, 0.65);"></md-icon>
+</md-tab-label>
+<md-tab-body style="background-color:inherit; height: calc(100vh - 100px);">
+<md-content style="background-color:inherit; height: calc(100vh - 147px);" ng-include="'partials/intouch-templates/intouch-home-channels-template.html'">
+</md-content>
+</md-tab-body>
+</md-tab>
+<md-tab style="background-color:inherit;">
+<md-tab-label>
+<md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:rgba(245, 245, 245, 0.65);"></md-icon>
+</md-tab-label>
+<md-tab-body style="background-color:inherit; height: calc(100vh - 100px);">
+<md-content style="background-color:inherit;height: calc(100vh - 147px);" ng-include="'partials/intouch-templates/intouch-home-call-log-template.html'">
+</md-content>
+</md-tab-body>
+</md-tab>
+<md-tab style="background-color:inherit;">
+<md-tab-label>
+<md-icon md-svg-icon="icons/ic_contacts_24px.svg" style="color:rgba(245, 245, 245, 0.65);"></md-icon>
+</md-tab-label>
+<md-tab-body style="background-color:inherit; height: calc(100vh - 100px);">
+<md-content style="background-color:inherit;height: calc(100vh - 147px);" ng-include="'partials/intouch-templates/intouch-home-contacts-template.html'"></md-content>
+</md-tab-body>
+</md-tab>
+</md-tabs>
+
+                   <!--  <div layout="row" layout-align="space-around center">
+                        <div flex><md-icon md-svg-icon="icons/ic_message_24px.svg" style="color:rgba(245, 245, 245, 0.65);"></md-icon></div>
+                        <div flex><md-icon md-svg-icon="icons/ic_group_24px.svg" style="color:rgba(245, 245, 245, 0.65);"></md-icon></div>
+                        <div flex><md-icon md-svg-icon="icons/ic_call_24px.svg" style="color:rgba(245, 245, 245, 0.65);"></md-icon></div>
+                        <div flex><md-icon md-svg-icon="icons/ic_contacts_24px.svg" style="color:rgba(245, 245, 245, 0.65);"></md-icon></div>
+                    </div> -->
+
+                </md-content>
+            </div>
+
+            <div style="
+            height: 100%;
+            border-left: 1px solid lightgrey;
+            " flex>
+            <md-content style="overflow:hidden;height:inherit;" flex ng-init="loginButton=true;" ui-view>
+            <div ng-include="'partials/intouch-templates/intouch-home-default-template.html'" style="height:100%;"></div>
+        </md-content>
+    </div>
+
+</div>
+<!-- audio resources-->
+<audio id="dialerTune">
+    <source src="audio/ring1.ogg" type="audio/ogg">
+    </audio>
+    <audio id="notificationTune">
+        <source src="audio/notification1.ogg" type="audio/ogg">
+        </audio>
+    </body>
+</frameworkapp-container>

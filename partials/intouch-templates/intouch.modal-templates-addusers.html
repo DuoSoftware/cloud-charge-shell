@@ -1,0 +1,19 @@
+<md-dialog style="width:30vw;height:70vh;">
+    <md-toolbar style="min-height:48px; background-color:{{$root.shellConfig.themeconfiguration.primarypalette}}; height:48px;">
+        <div class="md-toolbar-tools" layout="row" layout-align="space-around center" style="height:40px;">
+            <p style="padding:10px;font-size:16px;font-weight:300;">{{channel.topic}}</p>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding autocomplete" layout="column">
+        <md-list ng-cloak>
+            <md-subheader class="md-no-sticky">Select members</md-subheader>
+            <md-list-item ng-repeat="user in users" class="newChannel-list-item">
+                <p> {{user.fname }} </p>
+                <md-checkbox class="md-secondary" ng-model="user.selected"></md-checkbox>
+            </md-list-item>
+        </md-list>
+        <md-button ng-click="returnSelectedUsers('add')">
+            add
+        </md-button>
+    </md-content>
+</md-dialog>

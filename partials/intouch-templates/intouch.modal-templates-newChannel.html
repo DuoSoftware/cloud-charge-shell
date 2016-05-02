@@ -1,0 +1,31 @@
+<md-dialog style="width:40vw;">
+    <form name="newChannelDialog" novalidate>
+        <md-toolbar style="min-height:48px; background-color:{{$root.shellConfig.themeconfiguration.primarypalette}}; height:48px;">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center" style="height:48px;">
+                <p class="newChannel-title">New Channel</p>
+                <md-button ng-click="cancel();">
+                    <md-icon md-svg-icon="icons/ic_close_24px.svg" class="newChannel-title-icon"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-progress-linear ng-show="showProgress" md-mode="indeterminate" class="md-accent"></md-progress-linear>
+        <md-content class="md-padding autocomplete" layout="column">
+            <md-input-container>
+                <label>Channel Topic</label>
+                <input ng-disabled="showProgress" ng-model="channelName" name="topic" required>
+            </md-input-container>
+<!--
+           <md-list ng-cloak>
+    <md-subheader class="md-no-sticky">Select members</md-subheader>
+    <md-list-item ng-repeat="user in users" class="newChannel-list-item">
+        <p> {{user.fname }} </p>
+        <md-checkbox class="md-secondary" ng-model="user.selected" ng-disabled="showProgress"></md-checkbox>
+    </md-list-item>
+</md-list>
+-->
+            <md-button ng-click="returnSelectedUsers('new')" ng-disabled="showProgress || newCHannelDialog.topic.$invalid">
+                create
+            </md-button>
+        </md-content>
+    </form>
+</md-dialog>
